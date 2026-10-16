@@ -1,0 +1,1636 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>Japão · Hugo &amp; Marília 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&display=swap">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<style>
+:root{--bg:#F2F2F7;--bg2:#FFF;--bg3:#F2F2F7;--bg4:#E5E5EA;--sep:rgba(60,60,67,.18);--gold:#B8860B;--cr:#000;--t2:rgba(60,60,67,.6);--t3:rgba(60,60,67,.38);--blue:#007AFF;--safe-t:env(safe-area-inset-top,0px);--safe-b:env(safe-area-inset-bottom,0px)}
+*{-webkit-tap-highlight-color:transparent;box-sizing:border-box;margin:0;padding:0}
+html{height:100%;background:var(--bg)}
+body{color:var(--cr);font-family:"Plus Jakarta Sans",-apple-system,"Helvetica Neue",Arial,sans-serif;font-size:15px;line-height:1.55;display:flex;flex-direction:column;overflow:hidden;height:100dvh;padding-top:var(--safe-t)}
+/* HDR */
+.hdr{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;background:rgba(255,255,255,.92);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:.5px solid var(--sep);flex-shrink:0}
+.logo{font-family:"Fraunces","Times New Roman",serif;font-size:21px;font-weight:300;letter-spacing:-.02em;color:#000;font-variation-settings:"opsz" 72}
+.logo em{color:var(--gold);font-style:italic;font-weight:400}
+.pax{font-size:10.5px;color:var(--t3);letter-spacing:.09em;text-transform:uppercase;font-weight:600;white-space:nowrap}
+@media (max-width:400px){
+  .hdr{padding:10px 12px}
+  .logo{font-size:16px}
+  .theme-btn{width:26px;height:26px;font-size:12px}
+  .pax{font-size:8px;letter-spacing:.05em}
+  .hdr>div{gap:6px!important}
+}
+/* PHASE */
+.ptabs{display:flex;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;background:var(--bg2);border-bottom:.5px solid var(--sep);flex-shrink:0}
+.ptabs::-webkit-scrollbar{display:none}
+.ptab{flex:0 0 auto;white-space:nowrap;padding:10px 14px;font-size:12px;font-weight:600;color:var(--t2);border:none;background:none;cursor:pointer;touch-action:manipulation;border-bottom:2px solid transparent;margin-bottom:-.5px;text-align:center;line-height:1.3;letter-spacing:.01em}
+.ptab.a{color:var(--gold);border-bottom-color:var(--gold)}
+/* SCROLL MAIN */
+.main{flex:1;min-height:0;overflow-y:auto;-webkit-overflow-scrolling:touch;background:var(--bg)}
+/* DAY NAV */
+.dnav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.92);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:.5px solid var(--sep);padding:10px 14px;overflow-x:scroll;-webkit-overflow-scrolling:touch;display:flex;gap:6px;scrollbar-width:none}
+.dnav::-webkit-scrollbar{display:none}
+.dbtn{padding:6px 16px;border-radius:999px;font-size:12px;font-weight:600;border:.5px solid var(--sep);background:var(--bg2);color:var(--t2);cursor:pointer;touch-action:manipulation;white-space:nowrap;-webkit-appearance:none;letter-spacing:.01em}
+.dbtn.a{background:var(--gold);border-color:var(--gold);color:#fff;font-weight:600}
+/* DAY HDR */
+.dhdr{padding:20px 16px 14px;background:var(--bg2)}
+.d-date{font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--t3);margin-bottom:5px;font-weight:700}
+.d-title{font-family:"Plus Jakarta Sans",-apple-system,"Helvetica Neue",Arial,sans-serif;font-size:28px;font-weight:800;line-height:1.1;margin-bottom:6px;color:#000;letter-spacing:-.04em}
+.d-sub{font-size:14px;color:var(--t2);margin-bottom:14px;line-height:1.65}
+/* NAV BTNS */
+.navbtns{display:flex;gap:8px;flex-wrap:wrap}
+.nbtn{display:inline-flex;align-items:center;gap:6px;padding:9px 14px;border-radius:10px;font-size:13px;font-weight:700;text-decoration:none;touch-action:manipulation;-webkit-appearance:none;white-space:nowrap;cursor:pointer;letter-spacing:.01em}
+.nbtn-gm{background:#1a73e8;color:#fff}
+.navbtns .nbtn{flex:1;justify-content:center;padding:12px 14px;font-size:14px}
+.nbtn-wz{background:#05C8F7;color:#000}
+.nbtn-ap{background:var(--bg3);color:var(--cr);border:.5px solid var(--sep)}
+/* MAP */
+.map-wrap{position:relative;background:var(--bg3)}
+#day-map{height:220px}
+.leaflet-container{background:#ddd!important}
+.leaflet-control-attribution{display:none}
+/* STOP PREVIEW — horizontal photo cards below map, like Google Maps summary */
+.stop-preview{display:flex;overflow-x:scroll;gap:10px;padding:12px 16px;scrollbar-width:none;background:var(--bg2);border-bottom:.5px solid var(--sep)}
+.stop-preview::-webkit-scrollbar{display:none}
+.sp-card{flex:0 0 130px;height:90px;border-radius:12px;overflow:hidden;cursor:pointer;-webkit-appearance:none;border:none;padding:0;touch-action:manipulation;box-shadow:0 1px 4px rgba(0,0,0,.12)}
+.sp-img{width:100%;height:100%;background-size:cover;background-position:center;background-color:var(--bg4);position:relative}
+.sp-img::after{content:'';position:absolute;inset:0;background:linear-gradient(transparent 30%,rgba(0,0,0,.62))}
+.sp-num{position:absolute;top:7px;left:7px;width:22px;height:22px;border-radius:50%;font-size:11px;font-weight:700;color:#fff;display:flex;align-items:center;justify-content:center;z-index:2;box-shadow:0 1px 3px rgba(0,0,0,.4)}
+.sp-time{position:absolute;top:7px;right:7px;font-size:9px;font-weight:600;color:rgba(255,255,255,.9);z-index:2;background:rgba(0,0,0,.38);padding:2px 5px;border-radius:4px}
+.sp-label{position:absolute;bottom:7px;left:7px;right:7px;font-size:10.5px;font-weight:700;color:#fff;z-index:2;line-height:1.3;letter-spacing:.01em}
+/* SECTION HEADER */
+.sec-hdr{padding:12px 16px 7px;font-size:10.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--t3);background:var(--bg)}
+/* STOP CARDS — timeline style */
+.stops-list{padding:0 0 120px;background:var(--bg)}
+.stop-section{background:var(--bg2);margin-bottom:8px}
+.stop-row{display:flex;align-items:stretch;padding:0 16px;background:var(--bg2)}
+.stop-tl{width:20px;flex-shrink:0;display:flex;flex-direction:column;align-items:center;padding-top:5px}
+.stop-dot{width:11px;height:11px;border-radius:50%;flex-shrink:0;border:2.5px solid var(--bg2);box-shadow:0 0 0 1px rgba(0,0,0,.12)}
+.stop-line{width:2px;flex:1;min-height:10px;margin-top:3px;border-radius:1px}
+.stop-last .stop-line{display:none}
+.stop-card{flex:1;margin-left:10px;padding:10px 0 18px;border-bottom:.5px solid var(--sep);cursor:pointer;touch-action:manipulation;-webkit-appearance:none;background:none;border:none;border-bottom:.5px solid var(--sep);text-align:left;width:100%;display:flex;gap:10px}
+.stop-last .stop-card{border-bottom:none;padding-bottom:8px}
+.stop-info{flex:1;min-width:0}
+.stop-meta{display:flex;gap:5px;align-items:center;flex-wrap:wrap;margin-bottom:4px}
+.stop-time{font-size:11.5px;color:var(--t3);font-weight:600;letter-spacing:.01em}
+.badge,.status{font-size:10px;padding:2px 8px;border-radius:999px;white-space:nowrap;font-weight:600;letter-spacing:.02em}
+.b-famous{background:rgba(100,80,180,.1);color:#5040A0}
+.b-boutique{background:rgba(46,125,50,.1);color:#1A6B1E}
+.b-almoco{background:rgba(160,80,20,.1);color:#9A4A10}
+.b-cidade{background:rgba(80,80,80,.1);color:#505050}
+.b-montanha{background:rgba(20,80,180,.1);color:#1450A0}
+.b-hotel{background:rgba(160,30,30,.1);color:#901E1E}
+html.dark .b-famous{background:rgba(150,130,220,.18);color:#C4B5F0}
+html.dark .b-boutique{background:rgba(90,180,95,.18);color:#8FD98F}
+html.dark .b-almoco{background:rgba(220,140,70,.2);color:#F0B080}
+html.dark .b-cidade{background:rgba(160,160,160,.2);color:#D8D8D8}
+html.dark .b-montanha{background:rgba(90,150,230,.2);color:#9CC4F5}
+html.dark .b-hotel{background:rgba(220,90,90,.2);color:#F0A0A0}
+.s-ok{background:rgba(52,199,89,.12);color:#1A8C36}
+.s-warn{background:rgba(255,149,0,.14);color:#A05000}
+.s-nohr{background:var(--bg3);color:var(--t3)}
+.stop-name{font-size:16.5px;font-weight:700;line-height:1.25;color:#000;margin-bottom:3px;letter-spacing:-.01em}
+.stop-hrs{font-size:11.5px;color:var(--t3);margin-bottom:3px;font-weight:500}
+.stop-desc{font-size:13px;color:var(--t2);line-height:1.55;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.stop-thumb{width:72px;height:72px;border-radius:10px;object-fit:cover;flex-shrink:0;background:var(--bg3)}
+.stop-caret{font-size:11px;color:var(--t3);margin-top:5px;font-weight:600;letter-spacing:.04em}
+/* OPTIONAL STOPS SECTION — attractions cut from the itinerary, kept as grayed-out alternatives */
+.opt-hdr{padding:16px 16px 7px;font-size:10.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--t3);background:var(--bg);border-top:2px dashed var(--sep);margin-top:4px}
+.opt-note{padding:0 16px 8px;font-size:11.5px;color:var(--t3);background:var(--bg2)}
+.stop-row.is-optional{filter:grayscale(.8);opacity:.62}
+.stop-row.is-optional .stop-dot{border-style:dashed;border-width:1.5px;background:#9A9A9A!important}
+.stop-row.is-optional .stop-line{background:#9A9A9A33!important}
+/* MEAL HIGHLIGHT — almoço / jantar stops get a painted badge, nothing else */
+.meal-tag{display:inline-flex;align-items:center;gap:4px;font-size:10.5px;font-weight:800;letter-spacing:.03em;color:#fff;background:#CF8050;padding:3px 9px;border-radius:999px;white-space:nowrap;box-shadow:0 1px 4px rgba(207,128,80,.5)}
+html.dark .meal-tag{background:#E0985F;color:#1C1C1E;box-shadow:0 1px 4px rgba(224,152,95,.35)}
+.sp-meal-tag{position:absolute;bottom:26px;left:7px;font-size:8.5px;font-weight:800;letter-spacing:.03em;color:#fff;background:#CF8050;padding:2px 6px;border-radius:4px;z-index:2}
+/* REFEICOES A DEFINIR — card placeholder + carrossel de opcoes, na posicao do horario */
+.meal-block{background:var(--bg2);padding:2px 0 12px;border-bottom:.5px solid var(--sep)}
+.meal-slot{display:flex;align-items:center;gap:10px;padding:12px 16px 10px}
+.meal-slot .ms-ico{width:34px;height:34px;border-radius:50%;background:var(--bg3);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
+.meal-slot .ms-txt{flex:1;min-width:0}
+.meal-slot .ms-t1{font-size:14px;font-weight:700;color:var(--cr);line-height:1.3}
+.meal-slot .ms-t2{font-size:11.5px;color:var(--t3);margin-top:2px}
+.meal-slot.is-set .ms-ico{background:rgba(52,199,89,.16)}
+.ms-clear{font-size:11px;font-weight:600;color:var(--cr);background:none;border:.5px solid var(--sep);border-radius:8px;padding:6px 10px;cursor:pointer;touch-action:manipulation;-webkit-appearance:none;white-space:nowrap}
+.meal-note{padding:0 16px 8px;font-size:11.5px;color:var(--t3)}
+.meal-car{display:flex;overflow-x:scroll;gap:10px;padding:2px 16px 4px;scrollbar-width:none}
+.meal-car::-webkit-scrollbar{display:none}
+.mc-card{flex:0 0 156px;border-radius:12px;overflow:hidden;cursor:pointer;-webkit-appearance:none;border:.5px solid var(--sep);padding:0;background:var(--bg);touch-action:manipulation;text-align:left;display:flex;flex-direction:column;box-shadow:0 1px 4px rgba(0,0,0,.10)}
+.mc-card.is-chosen{border:1.5px solid #34C759}
+.mc-img{width:100%;height:88px;background-size:cover;background-position:center;background-color:var(--bg4);position:relative}
+.mc-img::after{content:'';position:absolute;inset:0;background:linear-gradient(transparent 45%,rgba(0,0,0,.60))}
+.mc-rate{position:absolute;top:6px;left:6px;z-index:2;background:rgba(0,0,0,.62);color:#FFD166;font-size:10px;font-weight:700;padding:2px 6px;border-radius:6px;display:flex;align-items:center;gap:3px}
+.mc-rate span{color:#fff;opacity:.82;font-weight:600}
+.mc-chk{position:absolute;top:6px;right:6px;z-index:2;width:20px;height:20px;border-radius:50%;background:#34C759;color:#fff;font-size:12px;font-weight:700;display:none;align-items:center;justify-content:center}
+.mc-card.is-chosen .mc-chk{display:flex}
+.mc-body{padding:7px 9px 9px}
+.mc-name{font-size:11.5px;font-weight:700;color:var(--cr);line-height:1.28;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.mc-meta{font-size:10px;color:var(--t3);margin-top:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+/* Selos Michelin / destaque + faixa de preço nos cards do carrossel.
+   Ficam sobre a foto (já há gradiente ali) para não alongar o card — o carrossel
+   iguala a altura de todos, então altura no corpo vira espaço morto nos demais. */
+.mc-tags{position:absolute;left:5px;right:5px;bottom:5px;z-index:2;display:flex;gap:3px;flex-wrap:wrap}
+.mc-tag{font-size:8px;font-weight:800;padding:2px 5px;border-radius:3px;letter-spacing:.03em;white-space:nowrap;line-height:1.4}
+.mc-tag.t-star{background:#1A1A2E;color:#F9D859}
+.mc-tag.t-green{background:#1A4731;color:#6EE7B7}
+.mc-tag.t-reco{background:#3F4854;color:#EDEFF2}
+.mc-tag.t-dest{background:var(--gold);color:#fff}
+html.dark .mc-tag.t-reco{background:#55606E;color:#F3F5F7}
+.mc-price{font-size:9.5px;font-weight:700;color:var(--t2);margin-top:3px}
+/* na ficha detalhada os selos voltam ao fluxo normal */
+.sh-badges .mc-tag{position:static;font-size:9.5px;padding:3px 7px;border-radius:4px}
+.b-jantar{background:rgba(60,60,140,.1);color:#3A3A8C}
+html.dark .b-jantar{background:rgba(130,130,220,.2);color:#B0B0F0}
+.ab.pick{background:#34C759;border-color:#34C759;color:#fff}
+.ab.unpick{background:var(--bg3);border-color:var(--sep);color:var(--t2)}
+/* OVERLAY */
+.ov{position:fixed;top:0;left:0;right:0;bottom:0;background:transparent;z-index:8000;pointer-events:none;transition:background .3s}
+.ov.open{background:rgba(0,0,0,.45);pointer-events:auto}
+/* SHEET */
+.sheet{position:fixed;left:0;right:0;bottom:0;z-index:8001;background:var(--bg2);border-radius:20px 20px 0 0;max-height:93dvh;display:flex;flex-direction:column;transform:translateY(100%);transition:transform .35s cubic-bezier(.32,.72,0,1);padding-bottom:var(--safe-b);will-change:transform}
+.sheet.open{transform:translateY(0)}
+.sh-handle{flex-shrink:0;padding:12px 0 0;display:flex;justify-content:center;cursor:pointer;touch-action:none}
+.sh-handle div{width:36px;height:4px;background:var(--bg4);border-radius:2px}
+.sh-close{position:absolute;top:20px;right:16px;z-index:10;width:30px;height:30px;border-radius:50%;background:var(--bg3);border:none;color:var(--t2);font-size:14px;cursor:pointer;touch-action:manipulation;display:flex;align-items:center;justify-content:center;-webkit-appearance:none}
+/* photo scroll-snap */
+.ph-scroll{display:flex;overflow-x:scroll;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;flex-shrink:0;scrollbar-width:none}
+.ph-scroll::-webkit-scrollbar{display:none}
+.ph-slide{flex:0 0 100%;scroll-snap-align:start;position:relative}
+.ph-slide img{width:100%;height:220px;object-fit:cover;display:block;background:var(--bg3)}
+.ph-dots-container{display:flex;justify-content:center;gap:5px;padding:8px 0;background:rgba(0,0,0,.15)}
+.ph-dot{width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,.5);transition:background .2s}
+.ph-dot.a{background:#fff}
+/* lightbox */
+.lb{position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,.93);display:none;flex-direction:column;align-items:center;justify-content:center;touch-action:none}
+.lb.open{display:flex}
+.lb-img{max-width:100%;max-height:calc(100dvh - 80px);object-fit:contain;display:block;user-select:none;-webkit-user-drag:none}
+.lb-close{position:absolute;top:16px;right:16px;width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.15);border:none;color:#fff;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:10}
+.lb-close:hover{background:rgba(255,255,255,.25)}
+.lb-arrow{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.15);border:none;color:#fff;font-size:22px;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:10;transition:background .2s}
+.lb-arrow:hover{background:rgba(255,255,255,.3)}
+.lb-prev{left:12px}
+.lb-next{right:12px}
+.lb-counter{position:absolute;bottom:18px;left:50%;transform:translateX(-50%);color:rgba(255,255,255,.7);font-size:13px;letter-spacing:.05em}
+/* sheet body */
+.sh-body{overflow-y:scroll;-webkit-overflow-scrolling:touch;flex:1;padding:0}
+.sh-body::-webkit-scrollbar{display:none}
+.sh-inner{padding:14px 16px 10px}
+.sh-name{font-family:"Fraunces","Times New Roman",serif;font-size:26px;font-weight:300;line-height:1.2;margin-bottom:8px;color:#000;letter-spacing:-.02em;font-variation-settings:"opsz" 72}
+.sh-badges{display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin-bottom:14px}
+.sh-rating{font-size:13px;color:var(--gold);display:flex;align-items:center;gap:4px}
+.sh-sect{margin-bottom:16px}
+.sh-sect-t{font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--t3);margin-bottom:8px;font-weight:700}
+.h-grid{display:grid;grid-template-columns:auto 1fr;gap:4px 14px}
+.h-day{color:var(--t3);font-size:13px;font-weight:500}
+.h-val{color:var(--cr);font-size:13px;font-weight:500}
+.h-val.cl{color:var(--t3);font-style:italic}
+.sh-desc{font-size:14.5px;color:var(--t2);line-height:1.7}
+/* actions */
+.sh-acts{display:flex;flex-direction:column;gap:8px;padding-top:14px;border-top:.5px solid var(--sep)}
+.sh-acts-main{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:6px}
+.sh-acts-main>*:last-child:nth-child(odd){grid-column:1/-1}
+.sh-acts-special{display:flex;gap:8px}
+.ab{display:flex;align-items:center;justify-content:center;gap:6px;padding:12px 8px;border-radius:12px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;touch-action:manipulation;border:.5px solid var(--sep);color:var(--t2);background:var(--bg3);-webkit-appearance:none;white-space:nowrap}
+.ab.full{grid-column:1/-1}
+.ab.site{background:var(--blue);border-color:var(--blue);color:#fff}
+.ab.wz{background:#05C8F7;border-color:#05C8F7;color:#000}
+.ab.wa{background:#25D366;border-color:#25D366;color:#fff}
+.ab.ap{background:var(--bg3);border-color:var(--sep);color:var(--cr)}
+.ab.ig{background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);border-color:transparent;color:#fff}
+.ab.menu{background:rgba(180,120,30,.12);color:#8C5E20;border-color:rgba(180,120,30,.3)}
+.ab.info{background:rgba(52,199,89,.12);color:#1A8C36;border-color:rgba(52,199,89,.3)}
+/* ── Info Importante panel ────────────────────────────────────────────────── */
+.info-panel{font-size:13.5px;color:var(--t2);line-height:1.5}
+.info-fx{font-size:11.5px;color:var(--t3);background:var(--bg3);border-radius:8px;padding:8px 10px;margin-bottom:10px}
+.info-fonte{font-size:11.5px;color:var(--t3);font-style:italic;margin-bottom:14px}
+.info-items{display:flex;flex-direction:column;gap:12px;margin-bottom:14px}
+.info-item{padding-bottom:12px;border-bottom:.5px solid var(--sep)}
+.info-item:last-child{border-bottom:none;padding-bottom:0}
+.info-item-name{font-size:14px;font-weight:700;color:var(--cr);margin-bottom:2px}
+.info-item-desc{font-size:12.5px;color:var(--t3);margin-bottom:4px}
+.info-item-price{font-size:13px;font-weight:600;color:#1A8C36}
+.info-minor{font-weight:500;color:var(--t3)}
+.info-extras{display:flex;flex-direction:column;gap:8px;padding-top:12px;border-top:1px solid var(--sep)}
+.info-extra{font-size:13px}
+.info-extra b{color:var(--cr)}
+.info-extra a{color:var(--blue)}
+/* DARK MODE */
+html.dark{--bg:#1C1C1E;--bg2:#2C2C2E;--bg3:#3A3A3C;--bg4:#48484A;--sep:rgba(255,255,255,.12);--gold:#D4A843;--cr:#FFFFFF;--t2:rgba(255,255,255,.6);--t3:rgba(255,255,255,.38);--blue:#0A84FF}
+html.dark .logo{color:#fff}
+html.dark .d-title{color:var(--cr)}
+html.dark .stop-name{color:#fff}
+html.dark .sh-name{color:#fff}
+html.dark .hdr{background:rgba(28,28,30,.92)}
+html.dark .dnav{background:rgba(28,28,30,.92)}
+html.dark .leaflet-container{background:#333!important}
+/* THEME BUTTON */
+.theme-btn{width:30px;height:30px;border-radius:50%;border:.5px solid var(--sep);background:var(--bg3);color:var(--cr);font-size:15px;cursor:pointer;touch-action:manipulation;display:flex;align-items:center;justify-content:center;-webkit-appearance:none;flex-shrink:0;line-height:1}
+
+/* ── File Attachments ─────────────────────────────────────────────────────── */
+.sh-files{margin-top:16px;border-top:.5px solid var(--sep);padding-top:14px}
+.sh-files-hd{font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--t3);margin-bottom:10px;font-weight:700;display:flex;align-items:center;justify-content:space-between}
+.docs-cat{font-size:17px;font-weight:800;color:var(--cr);margin:18px 0 8px;padding-bottom:6px;border-bottom:2px solid var(--gold)}
+.docs-cat:first-child{margin-top:0}
+.docs-fam{font-size:13px;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:.05em;margin:12px 0 6px;padding:2px 0 2px 8px;border-left:3px solid var(--gold)}
+.docs-fam:first-of-type{margin-top:4px}
+.pdfv-bar{flex-shrink:0;display:flex;justify-content:flex-end;gap:8px;padding:10px 12px;background:#000}
+.pdfv-btn{width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.15);border:none;color:#fff;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;text-decoration:none;-webkit-tap-highlight-color:transparent}
+.pdfv-btn:hover{background:rgba(255,255,255,.25)}
+.pdfv-pages{flex:1;width:100%;overflow-y:auto;-webkit-overflow-scrolling:touch;background:#525659;display:flex;flex-direction:column;align-items:center;gap:14px;padding:14px 10px calc(14px + var(--safe-b))}
+.pdfv-pages canvas{max-width:100%;height:auto;box-shadow:0 2px 10px rgba(0,0,0,.5);background:#fff}
+.pdfv-loading{color:rgba(255,255,255,.7);font-size:13px;padding:40px 0}
+.ab.split{background:rgba(184,134,11,.12);color:var(--gold);border-color:rgba(184,134,11,.3)}
+.split-sect-t{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--t3);font-weight:700;margin:14px 0 6px}
+.split-sect-t:first-child{margin-top:0}
+.split-chip{padding:7px 13px;border-radius:20px;border:1.5px solid var(--sep);background:var(--bg3);color:var(--t2);font-size:12.5px;font-weight:700;cursor:pointer;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+.split-chip.on{background:var(--gold);border-color:var(--gold);color:#fff}
+.split-row{display:flex;align-items:center;gap:8px;margin-bottom:6px}
+.split-label{flex:1;font-size:13px;color:var(--cr);font-weight:600}
+.split-input{width:100px;padding:8px;border-radius:8px;border:1px solid var(--sep);background:var(--bg3);color:var(--cr);font-size:13px;-webkit-appearance:none}
+.split-select{padding:8px 4px;border-radius:8px;border:1px solid var(--sep);background:var(--bg3);color:var(--cr);font-size:12px}
+.split-result{display:flex;justify-content:space-between;gap:10px;padding:9px 12px;background:var(--bg3);border-radius:10px;margin-bottom:6px;font-size:13px;color:var(--cr)}
+.split-diff-pos{color:#1A8C36}
+.split-diff-neg{color:#D64545}
+.sh-files-add{background:var(--blue);color:#fff;border:none;border-radius:10px;padding:8px 14px;font-size:13px;font-weight:700;cursor:pointer;touch-action:manipulation;-webkit-appearance:none}
+.sh-file-list{display:flex;flex-direction:column;gap:8px;margin-bottom:6px}
+.sh-file-row{display:flex;align-items:center;gap:10px;padding:9px 12px;background:var(--bg3);border-radius:10px;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.sh-file-ico{font-size:22px;flex-shrink:0;line-height:1}
+.sh-file-info{flex:1;min-width:0}
+.sh-file-name{font-size:13px;font-weight:600;color:var(--cr);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sh-file-sz{font-size:11px;color:var(--t3);margin-top:1px}
+.sh-file-del{background:none;border:none;color:var(--t3);font-size:20px;cursor:pointer;padding:4px 8px;flex-shrink:0;line-height:1;touch-action:manipulation;-webkit-appearance:none}
+.sh-files-empty{font-size:13px;color:var(--t3);text-align:center;padding:16px 0;font-style:italic}
+.stop-filebadge{font-size:10px;background:rgba(0,122,255,.12);color:var(--blue);border-radius:999px;padding:2px 7px;font-weight:600;margin-top:5px;display:inline-block}
+/* ── Status: realizado / pendente ─────────────────────────────────────────── */
+.b-opcional{background:rgba(120,90,200,.12);color:#6A4AC0}
+html.dark .b-opcional{background:rgba(150,120,230,.18);color:#B9A6F0}
+.st-pill{font-size:10px;padding:2px 8px;border-radius:999px;font-weight:700;letter-spacing:.02em;white-space:nowrap;display:inline-flex;align-items:center;gap:3px}
+.st-done{background:rgba(52,199,89,.16);color:#1A8C36}
+.st-pend{background:rgba(255,149,0,.18);color:#9A5A00}
+.stop-row.is-done .stop-name{text-decoration:line-through;opacity:.55}
+.stop-row.is-done .stop-card{opacity:.78}
+.stop-row.is-pend{background:rgba(255,149,0,.05)}
+.stop-row.is-pend .stop-section,.stop-row.is-pend{}
+.stop-row.is-pend .stop-dot{box-shadow:0 0 0 2px rgba(255,149,0,.5)}
+/* status controls in sheet */
+.sh-status{display:flex;gap:8px;margin-bottom:16px}
+.stbtn{flex:1;display:flex;align-items:center;justify-content:center;gap:6px;padding:11px 8px;border-radius:12px;font-size:13px;font-weight:700;cursor:pointer;touch-action:manipulation;border:1px solid var(--sep);background:var(--bg3);color:var(--t2);-webkit-appearance:none}
+.stbtn.done.on{background:rgba(52,199,89,.16);border-color:rgba(52,199,89,.5);color:#1A8C36}
+.stbtn.pend.on{background:rgba(255,149,0,.16);border-color:rgba(255,149,0,.5);color:#9A5A00}
+/* reschedule modal */
+.rs-modal{position:fixed;inset:0;z-index:9000;background:rgba(0,0,0,.45);display:none;align-items:flex-end;justify-content:center}
+.rs-modal.open{display:flex}
+.rs-card{background:var(--bg2);width:100%;max-width:520px;border-radius:20px 20px 0 0;padding:20px 16px calc(16px + var(--safe-b));max-height:80dvh;display:flex;flex-direction:column;animation:rsUp .3s cubic-bezier(.32,.72,0,1)}
+@keyframes rsUp{from{transform:translateY(100%)}to{transform:translateY(0)}}
+.rs-title{font-size:17px;font-weight:800;color:var(--cr);margin-bottom:4px}
+.rs-desc{font-size:13px;color:var(--t2);line-height:1.5;margin-bottom:14px}
+.rs-list{overflow-y:auto;display:flex;flex-direction:column;gap:8px;margin-bottom:16px}
+.rs-opt{display:flex;align-items:center;gap:12px;padding:12px 14px;border-radius:12px;background:var(--bg3);border:1.5px solid transparent;cursor:pointer;touch-action:manipulation}
+.rs-opt.sel{border-color:var(--gold);background:rgba(184,134,11,.08)}
+.rs-check{width:22px;height:22px;border-radius:6px;border:2px solid var(--t3);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:14px;color:#fff;font-weight:700}
+.rs-opt.sel .rs-check{background:var(--gold);border-color:var(--gold)}
+.rs-opt-label{font-size:14px;font-weight:600;color:var(--cr)}
+.rs-opt-date{font-size:11.5px;color:var(--t3);margin-top:1px}
+.rs-acts{display:flex;gap:10px}
+.rs-btn{flex:1;padding:13px;border-radius:12px;font-size:14px;font-weight:700;cursor:pointer;touch-action:manipulation;border:none;-webkit-appearance:none}
+.rs-btn.cancel{background:var(--bg3);color:var(--t2)}
+.rs-btn.confirm{background:var(--gold);color:#fff}
+.rs-btn.confirm:disabled{opacity:.4}
+
+.ab.gm{background:#1a73e8;border-color:#1a73e8;color:#fff}
+.b-templo{background:rgba(190,70,40,.1);color:#A83A1A}
+html.dark .b-templo{background:rgba(230,120,80,.2);color:#F2B09A}
+.hotelline{margin-top:12px;font-size:12.5px;color:var(--t2);line-height:1.5}
+.hotelline a{color:var(--blue);text-decoration:none;font-weight:600}
+.daybox{background:var(--bg2);padding:0 16px;border-top:.5px solid var(--sep)}
+.dsec{border-bottom:.5px solid var(--sep)}
+.dsec:last-child{border-bottom:none}
+.dsec summary{padding:13px 0;font-size:13.5px;font-weight:700;color:var(--cr);cursor:pointer;list-style:none;touch-action:manipulation}
+.dsec summary::-webkit-details-marker{display:none}
+.dsec summary::after{content:"+";float:right;color:var(--t3);font-weight:500}
+.dsec[open] summary::after{content:"–"}
+.dsec ul{padding:0 0 12px 18px;font-size:13px;color:var(--t2);line-height:1.6}
+.dsec li{margin-bottom:5px}
+.dsec p{padding:0 0 10px;font-size:13px;color:var(--t2);line-height:1.6}
+.dsec a{color:var(--blue);text-decoration:none}
+.dsec.imp summary{color:#B26A00}
+html.dark .dsec.imp summary{color:#F0B050}
+</style>
+</head>
+<body>
+<div class="hdr">
+  <div style="display:flex;align-items:center;gap:10px">
+    <button class="theme-btn" id="docsBtn" aria-label="Guia da viagem">📖</button>
+    <div class="logo">Japão <em>·</em> 2026</div>
+  </div>
+  <div style="display:flex;align-items:center;gap:10px">
+    <div class="pax">Hugo &amp; Marília</div>
+    <button class="theme-btn" id="themeBtn" aria-label="Alternar modo escuro">🌙</button>
+  </div>
+</div>
+<div class="ptabs" id="ptabs"></div>
+<div class="main" id="main">
+  <div class="dnav" id="dnav"></div>
+  <div id="content"></div>
+</div>
+<div class="ov" id="ov"></div>
+<div class="sheet" id="sheet">
+  <button class="sh-close" id="shClose">✕</button>
+  <div class="sh-handle" id="shHandle"><div></div></div>
+  <div class="sh-body">
+    <div class="ph-scroll" id="phScroll"></div>
+    <div class="ph-dots-container" id="phDots"></div>
+    <div class="sh-inner">
+      <div class="sh-name" id="shName"></div>
+      <div class="sh-badges" id="shBadges"></div>
+      <div class="sh-status" id="shStatus"></div>
+      <div class="sh-sect" id="shHrsSect">
+        <div class="sh-sect-t">Horários de funcionamento</div>
+        <div class="h-grid" id="shHrs"></div>
+      </div>
+      <div class="sh-sect">
+        <div class="sh-sect-t">Sobre o local</div>
+        <div class="sh-desc" id="shDesc"></div>
+      </div>
+      <div class="sh-acts" id="shActs"></div>
+      <div id="shFiles"></div>
+    </div>
+  </div>
+</div>
+<!-- lightbox -->
+<div class="lb" id="lb" role="dialog" aria-modal="true">
+  <button class="lb-close" id="lbClose" aria-label="Fechar">✕</button>
+  <button class="lb-arrow lb-prev" id="lbPrev" aria-label="Anterior">&#8249;</button>
+  <img class="lb-img" id="lbImg" src="" alt="">
+  <button class="lb-arrow lb-next" id="lbNext" aria-label="Próxima">&#8250;</button>
+  <div class="lb-counter" id="lbCounter"></div>
+</div>
+<!-- pdf viewer -->
+<div class="lb" id="pdfViewer" role="dialog" aria-modal="true" style="flex-direction:column">
+  <div class="pdfv-bar">
+    <button id="pdfViewerOpen" class="pdfv-btn" aria-label="Abrir PDF completo em nova aba">⤢</button>
+    <button id="pdfViewerClose" class="pdfv-btn" aria-label="Fechar">✕</button>
+  </div>
+  <div id="pdfViewerPages" class="pdfv-pages"></div>
+</div>
+<!-- reschedule modal -->
+<div class="rs-modal" id="rsModal" role="dialog" aria-modal="true">
+  <div class="rs-card">
+    <div class="rs-title">Relançar para outro dia</div>
+    <div class="rs-desc" id="rsDesc">Escolha o dia para onde deseja mover esta atração. A rota do dia será recalculada automaticamente.</div>
+    <div class="rs-list" id="rsList"></div>
+    <div class="rs-acts">
+      <button class="rs-btn cancel" id="rsCancel">Cancelar</button>
+      <button class="rs-btn confirm" id="rsConfirm" disabled>Confirmar</button>
+    </div>
+  </div>
+</div>
+<!-- info importante modal -->
+<div class="rs-modal" id="infoModal" role="dialog" aria-modal="true">
+  <div class="rs-card">
+    <div class="rs-title" id="infoTitle">Informações importantes</div>
+    <div class="rs-list" id="infoBody"></div>
+    <div class="rs-acts">
+      <button class="rs-btn cancel" id="infoClose">Fechar</button>
+    </div>
+  </div>
+</div>
+<!-- documentos da viagem modal -->
+<div class="rs-modal" id="docsModal" role="dialog" aria-modal="true">
+  <div class="rs-card">
+    <div class="rs-title">📄 Documentos da Viagem</div>
+    <div class="rs-desc">Seguro viagem, aluguel de carro e outros comprovantes — funciona offline depois de aberto uma vez.</div>
+    <div class="rs-list" id="docsBody"></div>
+    <div class="rs-acts">
+      <button class="rs-btn cancel" id="docsClose">Fechar</button>
+    </div>
+  </div>
+</div>
+<!-- dividir a conta modal -->
+<div class="rs-modal" id="splitModal" role="dialog" aria-modal="true">
+  <div class="rs-card">
+    <div class="rs-title" id="splitTitle">🧮 Dividir a conta</div>
+    <div class="rs-list" id="splitBody"></div>
+    <div class="rs-acts">
+      <button class="rs-btn cancel" id="splitClose">Fechar</button>
+    </div>
+  </div>
+</div>
+<!-- resumo da viagem modal -->
+<div class="rs-modal" id="summaryModal" role="dialog" aria-modal="true">
+  <div class="rs-card">
+    <div class="rs-title">💰 Resumo da Viagem</div>
+    <div class="rs-desc">Soma todas as refeições com divisão registrada e mostra quem deve pagar a quem.</div>
+    <div class="rs-list" id="summaryBody"></div>
+    <div class="rs-acts">
+      <button class="rs-btn cancel" id="summaryClose">Fechar</button>
+    </div>
+  </div>
+</div>
+<input type="file" id="fileInput" accept="*/*" multiple style="display:none">
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js">
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script>
+// Theme toggle — runs immediately, before paint, to avoid flash
+(function(){
+  const root=document.documentElement;
+  const saved=localStorage.getItem('theme');
+  if(saved==='dark') root.classList.add('dark');
+  document.addEventListener('DOMContentLoaded',function(){
+    const btn=document.getElementById('themeBtn');
+    if(!btn) return;
+    btn.textContent=root.classList.contains('dark')?'☀️':'🌙';
+    btn.addEventListener('click',function(){
+      const isDark=root.classList.toggle('dark');
+      btn.textContent=isDark?'☀️':'🌙';
+      localStorage.setItem('theme',isDark?'dark':'light');
+    });
+  });
+})();
+
+
+// ── IndexedDB File Storage ───────────────────────────────────────────────────
+(function(){
+  const DB='toquio-hugo-maga-files',ST='files';
+  let db=null;
+  function openDB(){
+    return new Promise((res,rej)=>{
+      const r=indexedDB.open(DB,1);
+      r.onupgradeneeded=e=>{
+        const d=e.target.result;
+        if(!d.objectStoreNames.contains(ST)){
+          const s=d.createObjectStore(ST,{keyPath:'id',autoIncrement:true});
+          s.createIndex('sk','sk',{unique:false});
+        }
+      };
+      r.onsuccess=e=>{db=e.target.result;res(db);};
+      r.onerror=rej;
+    });
+  }
+  window.FILES={
+    ready:openDB(),
+    get(sk){return new Promise((res,rej)=>{const tx=db.transaction(ST,'readonly');const req=tx.objectStore(ST).index('sk').getAll(sk);req.onsuccess=()=>res(req.result||[]);req.onerror=rej;});},
+    save(sk,file){return new Promise((res,rej)=>{const rd=new FileReader();rd.onload=()=>{const tx=db.transaction(ST,'readwrite');const req=tx.objectStore(ST).add({sk,name:file.name,type:file.type,size:file.size,data:rd.result,at:Date.now()});req.onsuccess=()=>res(req.result);req.onerror=rej;};rd.onerror=rej;rd.readAsArrayBuffer(file);});},
+    del(id){return new Promise((res,rej)=>{const tx=db.transaction(ST,'readwrite');const req=tx.objectStore(ST).delete(id);req.onsuccess=res;req.onerror=rej;});},
+    hasAny(sk){return new Promise((res)=>{const tx=db.transaction(ST,'readonly');const req=tx.objectStore(ST).index('sk').getKey(sk);req.onsuccess=()=>res(req.result!==undefined);req.onerror=()=>res(false);});}
+  };
+})();
+function buildSk(phase,label,name){return phase+'||'+label+'||'+name;}
+
+const DATA={"p1": [{"label": "16/10", "date": "Sexta, 16 out", "title": "Embarque — São Paulo → Dallas → Tóquio", "sub": "Dois voos pela American até Tóquio, com conexão em Dallas.", "origin": "Aeroporto de Guarulhos GRU", "stops": [{"time": "22h", "name": "16/10 · 22h — Voo São Paulo (GRU) → Dallas (DFW)", "desc": "American. Embarque 16/10 às 22h, chegada 17/10 às 6h20.", "badge": "transporte", "t": "city", "q": "Guarulhos International Airport"}, {"time": null, "name": "17/10 · 10h30 — Voo Dallas (DFW) → Tóquio Haneda (HND)", "desc": "American. Embarque 17/10 às 10h30, chegada 18/10 às 14h20 (horário do Japão). Na conexão em Dallas é preciso passar pela imigração dos EUA, retirar as malas e despachar de novo.", "badge": "transporte", "t": "city", "q": "Dallas Fort Worth International Airport"}], "route": "https://www.google.com/maps/dir/?api=1&travelmode=transit&origin=Aeroporto%20de%20Guarulhos%20GRU&destination=Haneda%20Airport%20Terminal%203%2C%20Tokyo", "guide": {"importante": ["Visto americano válido é obrigatório por causa da conexão em Dallas.", "Preencham o Visit Japan Web antes do embarque e salvem os dois QR Codes (imigração e alfândega) em print.", "Passaporte com chip válido durante toda a viagem. Instalem o eSIM ainda no Brasil."]}}, {"label": "18/10", "date": "Domingo, 18 out", "title": "Chegada em Tóquio + Ginza", "sub": "Primeiro contato com Tóquio, com o dia bem tranquilo: chegada, hotel e uma caminhada leve por Ginza.", "origin": "Haneda Airport Terminal 3, Tokyo", "stops": [{"time": "14h20", "name": "Chegada em Tóquio (Haneda, Terminal 3)", "desc": "Terminal internacional. Antes de pousar, deixem abertos no celular os dois QR Codes do Visit Japan Web (imigração e alfândega). Contem 1h a 1h30 entre o pouso e a saída com as malas. No saguão, saquem ienes num caixa da 7-Eleven (Seven Bank): ¥20.000 a ¥30.000 bastam para os primeiros dias. Se o eSIM ainda não estiver ativo, ativem no Wi-Fi do aeroporto.", "badge": "transporte", "t": "city", "q": "Haneda Airport Terminal 3, Tokyo"}, {"time": "18h", "name": "Passeio leve por Ginza", "desc": "Depois de se instalarem, descansem. Se estiverem dispostos: caminhada pela Chuo-dori (a avenida principal de Ginza), subida ao jardim do terraço do Ginza Six (gratuito) para ver as luzes acendendo, uma volta pela Itoya (a papelaria mais famosa de Tóquio) e pela Uniqlo de Ginza, loja-conceito de vários andares.", "badge": "passeio", "t": "city", "q": "Ginza Six, Tokyo"}, {"time": "20h", "name": "Jantar — Ginza Kagari", "desc": "Sugestão: ramen cremoso de frango, famoso em Ginza.", "badge": "jantar", "t": "lunch", "q": "Ginza Kagari Honten, Ginza, Tokyo", "ig": "kagari_honten"}], "route": "https://www.google.com/maps/dir/?api=1&travelmode=transit&origin=Haneda%20Airport%20Terminal%203%2C%20Tokyo&destination=Hotel%20Henn%20Tokyo%20Ginza", "guide": {"locomover": ["Haneda Terminal 3 → Higashi-Ginza: linha Keikyu, dentro do terminal (sigam as placas vermelhas). Peguem trem com destino a Asakusa, Oshiage ou Narita, que segue direto pela linha Toei Asakusa, sem baldeação. Se o trem terminar em Shinagawa, troquem lá para a linha Asakusa.", "Alternativa de táxi: cerca de 30 a 40 minutos, dependendo do trânsito, por ¥8.000 a ¥10.000 (sujeito a pedágios).", "Para os passeios por Ginza, usem o Google Maps conforme o ponto onde estiverem."], "comer": ["Ginza Kagari: famoso pelo ramen cremoso de frango."], "dica": "Não tentem fazer muita coisa hoje! O ideal é descansar, se hidratar e começar a se adaptar ao fuso horário. Se estiverem com energia, uma caminhada leve já é suficiente.", "importante": ["Tenham os documentos de entrada e o endereço do hotel à mão para a imigração.", "Antes de sair do aeroporto, confirmem que o eSIM está funcionando e que conseguem acessar mapas e reservas pelo celular."]}}, {"label": "19/10", "date": "Segunda, 19 out", "title": "Asakusa, Kappabashi, Ueno e Akihabara", "sub": "Dois lados diferentes de Tóquio: o tradicional de Asakusa e o universo moderno de Akihabara.", "origin": "Hotel Henn Tokyo Ginza, 2 Chome-2-1 Tsukiji, Chuo City, Tokyo 104-0045", "stops": [{"time": "9h", "name": "Manhã em Asakusa — Templo Senso-ji", "desc": "Comecem pelo Templo Senso-ji, um dos mais tradicionais de Tóquio. Passem pelo portão Kaminarimon e caminhem pela Nakamise Street, cheia de lojinhas, doces japoneses e souvenirs. Depois, explorem as ruazinhas de Asakusa e caminhem até a Ponte Azuma, com vista do rio Sumida e da Tokyo Skytree.", "badge": "templo", "t": "city", "q": "Senso-ji Temple, Asakusa, Tokyo"}, {"time": "13h", "name": "Almoço — Daikokuya", "desc": "Sugestão: Daikokuya, famoso pelo tempurá servido sobre arroz (tendon). Fica por Asakusa mesmo.", "badge": "almoço", "t": "lunch", "q": "Daikokuya Tempura Asakusa, Tokyo"}, {"time": "14h", "name": "Kappabashi, Ueno (Ameyoko) e Akihabara", "desc": "Depois do almoço, sigam para Ameyoko, em Ueno, um mercado de rua cheio de lojinhas, comidas e produtos japoneses. Em seguida, conheçam Akihabara, o bairro dos eletrônicos, animes, videogames e fliperamas; entrem nas lojas que chamarem atenção, sem compromisso de conhecer tudo. Se estiverem cansados, podem ir direto de Asakusa para Akihabara, deixando Ueno de fora.", "badge": "passeio", "t": "city", "q": "Akihabara, Tokyo"}, {"time": "20h", "name": "Jantar — Kanda Matsuya", "desc": "Sugestão: restaurante histórico especializado em soba artesanal, na região de Kanda.", "badge": "jantar", "t": "lunch", "q": "Kanda Matsuya, Kanda, Tokyo", "website": "http://www.kanda-matsuya.jp/"}], "route": "https://www.google.com/maps/dir/?api=1&travelmode=transit&origin=Hotel%20Henn%20Tokyo%20Ginza%2C%202%20Chome-2-1%20Tsukiji%2C%20Chuo%20City%2C%20Tokyo%20104-0045&destination=Senso-ji%20Temple%2C%20Asakusa%2C%20Tokyo", "guide": {"locomover": ["Hotel → Asakusa: caminhem até Higashi-Ginza e peguem a linha Toei Asakusa até Asakusa (cerca de 15 min).", "Asakusa → Kappabashi: caminhada de 10–15 min.", "Kappabashi → Ueno: linha Ginza, de Tawaramachi até Ueno (cerca de 5 min).", "Ueno → Akihabara: JR Yamanote (cerca de 5 min).", "Akihabara → Kanda: caminhada de 10–15 min.", "Kanda → Hotel: linha Ginza até Ginza e caminhada até o hotel."], "comer": ["Daikokuya (Asakusa): tradicional tempurá servido sobre arroz.", "Kanda Matsuya (Kanda): restaurante histórico, especializado em soba artesanal.", "Ichiran (Akihabara): ramen japonês, ótimo para uma refeição rápida."], "dica": "Aproveitem para experimentar as comidinhas de rua e explorar as lojas sem pressa. Em Kappabashi, vale ver as famosas réplicas de comida japonesa."}}, {"label": "20/10", "date": "Terça, 20 out", "title": "Meiji Jingu, Harajuku e Shibuya", "sub": "O lado mais moderno e descolado de Tóquio, começando por um santuário cercado de floresta.", "origin": "Hotel Henn Tokyo Ginza, 2 Chome-2-1 Tsukiji, Chuo City, Tokyo 104-0045", "stops": [{"time": "9h", "name": "Meiji Jingu e Harajuku", "desc": "Comecem pelo Santuário Meiji Jingu, um dos mais importantes de Tóquio, cercado por uma enorme área verde, com caminhada tranquila entre as árvores e os portões torii. Depois, sigam para Harajuku e a Takeshita Street, cheia de lojas diferentes, moda japonesa e comidinhas. Vale experimentar os crepes da Marion Crepes!", "badge": "templo", "t": "city", "q": "Meiji Jingu, Shibuya, Tokyo"}, {"time": "12h", "name": "Almoço — Menchirashi", "desc": "Sugestão: udon artesanal em Harajuku, ótimo para o almoço.", "badge": "almoço", "t": "lunch", "q": "Menchirashi Harajuku, Tokyo", "ig": "menchirashi_one"}, {"time": "14h", "name": "Tarde em Shibuya", "desc": "Depois do almoço, sigam pela Cat Street, uma rua com lojas de moda, tênis e marcas japonesas, até Shibuya. Por lá, conheçam o Shibuya Crossing, a estátua de Hachiko e o shopping Shibuya PARCO, onde ficam a Nintendo Tokyo e o Pokémon Center.", "badge": "passeio", "t": "city", "q": "Shibuya Crossing, Tokyo"}, {"time": "16h", "name": "Shibuya Sky (pôr do sol)", "desc": "Se conseguirem ingresso para as 16h, subam ao Shibuya Sky para acompanhar o pôr do sol e ver Tóquio se iluminando: uma das vistas mais bonitas da cidade. Comprem o ingresso com antecedência.", "badge": "passeio", "t": "city", "q": "Shibuya Sky, Tokyo", "st": "warn", "stl": "COMPRAR INGRESSO"}, {"time": "20h", "name": "Jantar — Ichiran Shibuya", "desc": "Sugestão: ramen tonkotsu.", "badge": "jantar", "t": "lunch", "q": "Ichiran Shibuya, Tokyo", "website": "https://ichiran.com/shop/tokyo/shibuya/"}], "route": "https://www.google.com/maps/dir/?api=1&travelmode=transit&origin=Hotel%20Henn%20Tokyo%20Ginza%2C%202%20Chome-2-1%20Tsukiji%2C%20Chuo%20City%2C%20Tokyo%20104-0045&destination=Meiji%20Jingu%2C%20Shibuya%2C%20Tokyo", "guide": {"locomover": ["Hotel → Meiji Jingu: linha Ginza direto até Omotesando (uns 16 min) e caminhada até o santuário.", "Meiji Jingu → Harajuku: caminhada de 10 min.", "Harajuku → Omotesando → Cat Street: façam tudo a pé.", "Cat Street → Shibuya: caminhada de 15–20 min.", "Shibuya → Hotel: linha Ginza até Ginza e caminhada até o hotel."], "comer": ["Menchirashi (Harajuku): udon artesanal, ótimo para o almoço.", "Kaiten Sushi Ginza Onodera: sushi na esteira, opção na região de Omotesando.", "Ichiran Shibuya: ramen, sugestão para o jantar."], "dica": "Explorem Harajuku, Omotesando e Shibuya caminhando! Para subir ao Shibuya Sky, comprem o ingresso antecipadamente, principalmente para o pôr do sol."}}, {"label": "21/10", "date": "Quarta, 21 out", "title": "Shinjuku Gyoen e Shinjuku", "sub": "Um dos bairros mais vibrantes de Tóquio, com parque, letreiros gigantes e Kabukicho. Amanhã o dia começa cedo rumo ao Monte Fuji.", "origin": "Hotel Henn Tokyo Ginza, 2 Chome-2-1 Tsukiji, Chuo City, Tokyo 104-0045", "stops": [{"time": "9h", "name": "Shinjuku Gyoen", "desc": "ANTES de sair: peçam na recepção o envio das malas grandes diretamente para o hotel de Kyoto, onde chegam em 23/10. Separem apenas uma mochila ou mala pequena com o necessário para a noite no Monte Fuji. Confirmem com os dois hotéis o prazo de entrega e o recebimento. Depois, comecem pelo Shinjuku Gyoen, um dos jardins mais bonitos de Tóquio, com paisagens japonesas, lagos e áreas verdes. Um passeio tranquilo para aproveitar a manhã a dois.", "badge": "natureza", "t": "city", "q": "Shinjuku Gyoen National Garden, Tokyo"}, {"time": "11h30", "name": "Almoço — Tsuta", "desc": "Sugestão: Tsuta, famoso pelo ramen elaborado. Outra opção: Gyukatsu Motomura (carne empanada japonesa).", "badge": "almoço", "t": "lunch", "q": "Tsuta Shinjuku, Tokyo", "website": "https://www.tsuta79.tokyo/"}, {"time": "15h", "name": "Shinjuku", "desc": "Explorem Shinjuku, um dos bairros mais movimentados de Tóquio, cheio de lojas, telões e ruas iluminadas. Vale conhecer o famoso gato 3D, a região de Kabukicho (com a cabeça do Godzilla) e lojas como Don Quijote, Bic Camera e Isetan. Aproveitem para localizar o Busta Shinjuku, terminal de ônibus de onde saem amanhã às 7h15 para o Monte Fuji: fica junto à estação Shinjuku, próximo à saída New South.", "badge": "passeio", "t": "city", "q": "Kabukicho, Shinjuku, Tokyo"}, {"time": "18h", "name": "Jantar — Sushi Tokyo Ten", "desc": "Sugestão prioritária: experiência de omakase. A agência está tentando a reserva, que ainda não está confirmada.", "badge": "jantar", "t": "lunch", "q": "Sushi Tokyo Ten, Ginza, Tokyo", "website": "https://sushitokyo-ten.com/", "st": "warn", "stl": "RESERVA A CONFIRMAR"}], "route": "https://www.google.com/maps/dir/?api=1&travelmode=transit&origin=Hotel%20Henn%20Tokyo%20Ginza%2C%202%20Chome-2-1%20Tsukiji%2C%20Chuo%20City%2C%20Tokyo%20104-0045&destination=Shinjuku%20Gyoen%20National%20Garden%2C%20Tokyo", "guide": {"locomover": ["Hotel → Shinjuku Gyoen: linha Marunouchi direto de Ginza até Shinjuku-gyoemmae.", "Shinjuku Gyoen → Kabukicho: caminhada de cerca de 20 min, passando pela região comercial.", "Kabukicho → Busta Shinjuku: caminhada de 15–20 min até a saída sul da estação Shinjuku.", "Shinjuku → Hotel: linha Marunouchi até Ginza e caminhada até o hotel."], "comer": ["Tsuta: famoso pelo ramen elaborado, opção para o almoço.", "Gyukatsu Motomura: carne empanada japonesa, outra opção de almoço.", "Sushi Tokyo Ten: sugestão prioritária para o jantar (omakase). Reserva ainda não confirmada."], "dica": "Amanhã vocês seguem para o Monte Fuji bem cedo! Deixem uma mala pequena separada para a noite em Kawaguchiko e organizem o envio das malas grandes para o hotel de Kyoto. Confirmem também a plataforma de embarque no Busta Shinjuku e deixem os bilhetes do ônibus salvos no celular."}}], "p2": [{"label": "22/10", "date": "Quinta, 22 out", "title": "Monte Fuji — Chureito, Oshino Hakkai e ryokan", "sub": "Vocês deixam a agitação de Tóquio para uma das regiões mais bonitas do Japão: pagoda com o Fuji ao fundo, vila de águas cristalinas e uma noite em ryokan com onsen.", "origin": "Hotel Henn Tokyo Ginza", "stops": [{"time": "6h15", "name": "Saída para o Busta Shinjuku", "desc": "Saiam do hotel por volta das 6h15 e sigam de táxi para o terminal Busta Shinjuku (25–35 min, dependendo do trânsito). Façam o checkout do hotel em Tóquio. Ônibus Shinjuku Express já comprado: saída às 7h15, chegada às 8h50 na parada Chuo Expressway Shimoyoshida. Deixem os bilhetes salvos no celular.", "badge": "transporte", "t": "city", "q": "Busta Shinjuku, Tokyo", "st": "ok", "stl": "BILHETE COMPRADO"}, {"time": "~9h15", "name": "Pagoda Chureito (Parque Arakurayama Sengen)", "desc": "Da parada, caminhem cerca de 20 minutos até o Parque Arakurayama Sengen. Depois, são aproximadamente 398 degraus até o mirante do famoso Pagoda Chureito, com uma das vistas mais bonitas do Monte Fuji. Subam com calma e aproveitem a paisagem!", "badge": "natureza", "t": "city", "q": "Chureito Pagoda, Fujiyoshida"}, {"time": "10h30", "name": "Oshino Hakkai", "desc": "Sigam de táxi para Oshino Hakkai, vila tradicional conhecida pelas lagoas de águas cristalinas e pelas vistas do Monte Fuji. Passeiem pelas lojinhas, experimentem as comidinhas locais (soba, espetinhos) e aproveitem para almoçar por lá. Atenção: não há ponto de táxi no pagode; desçam até a estação Shimoyoshida ou chamem pelo app GO.", "badge": "natureza", "t": "city", "q": "Oshino Hakkai, Yamanashi"}, {"time": "15h", "name": "Check-in — Lakeland Hotel Mizunosato", "desc": "Hotel às margens do Lago Kawaguchi, com check-in a partir das 15h. Aproveitem a tarde para descansar, admirar a paisagem e viver a experiência do onsen, o tradicional banho termal japonês.", "badge": "hotel", "t": "hotel", "q": "Lakeland Hotel Mizunosato, Fujikawaguchiko"}, {"time": "19h", "name": "Jantar no ryokan", "desc": "Confirmem se o jantar está incluído na hospedagem e o horário de serviço.", "badge": "jantar", "t": "lunch", "q": "Lakeland Hotel Mizunosato, Fujikawaguchiko", "st": "warn", "stl": "CONFIRMAR HORÁRIO"}], "route": "https://www.google.com/maps/dir/?api=1&travelmode=transit&origin=Hotel%20Henn%20Tokyo%20Ginza&destination=Busta%20Shinjuku%2C%20Tokyo", "guide": {"locomover": ["Hotel → Busta Shinjuku: saiam cedo e peguem um táxi até o terminal. O ônibus parte às 7h15.", "Shinjuku → Shimoyoshida: ônibus direto até a parada Chuo Expressway Shimoyoshida, chegada prevista às 8h50.", "Shimoyoshida → Pagoda Chureito: caminhada de 20–25 min até a entrada do parque, seguida da subida de escadas.", "Chureito → Oshino Hakkai: desçam até a estação Shimoyoshida ou chamem pelo app GO.", "Oshino Hakkai → Kawaguchiko: táxi de cerca de 20–25 min.", "Kawaguchiko → Hotel Mizunosato: táxi ou transporte do hotel, se disponível."], "comer": ["Oshino Hakkai: soba, espetinhos e comidinhas típicas nas lojinhas da vila.", "Ryokan: confirmem se o jantar está incluído e o horário de serviço."], "dica": "A visibilidade do Monte Fuji depende muito do clima, e as manhãs costumam oferecer melhores chances de vê-lo sem nuvens. Levem um casaco mais quente (na região do Fuji pode fazer menos de 5°C à noite) e deixem as malas grandes seguindo para Kyoto, viajando só com o necessário para esta noite.", "importante": ["Amanhã vocês saem cedo de Kawaguchiko para Mishima e seguem de Shinkansen para Kyoto. Deixem os bilhetes salvos e peçam na recepção ajuda para organizar o táxi até a estação."]}}], "p3": [{"label": "23/10", "date": "Sexta, 23 out", "title": "Fuji → Kyoto, Kiyomizu-dera e Gion", "sub": "Despedida do Fuji e chegada a Kyoto, com um dos templos mais emblemáticos da cidade e a noite em Pontocho.", "origin": "Lakeland Hotel Mizunosato, Fujikawaguchiko", "stops": [{"time": "8h45", "name": "Checkout + viagem para Kyoto", "desc": "Se o céu estiver limpo, admirem o Monte Fuji logo cedo, quando a vista costuma ser mais bonita. Depois, café da manhã e checkout do ryokan. Ônibus Fujiyama Connect às 9h20 de Kawaguchiko (chegada em Mishima, saída Norte, às 10h50) e Shinkansen às 11h46 de Mishima, com chegada a Kyoto às 13h37. Todos os bilhetes já estão comprados. Para o almoço, comprem um ekiben (marmita japonesa) antes de embarcar no Shinkansen.", "badge": "transporte", "t": "city", "q": "Kawaguchiko Station", "st": "ok", "stl": "BILHETES COMPRADOS"}, {"time": "13h37", "name": "Chegada em Kyoto", "desc": "Sigam caminhando até o Daiwa Roynet Hotel Kyoto Ekimae Premier (a poucos minutos da estação), deixem as bagagens e descansem um pouquinho.", "badge": "hotel", "t": "hotel", "q": "Daiwa Roynet Hotel Kyoto Ekimae Premier"}, {"time": "15h15", "name": "Kiyomizu-dera + Sannenzaka, Ninenzaka e Santuário Yasaka", "desc": "Comecem Kyoto por um dos templos mais emblemáticos da cidade! O Kiyomizu-dera é famoso pela enorme varanda de madeira sobre a encosta, com vista linda da cidade. Depois, desçam a pé pelas charmosas ruas de Sannenzaka e Ninenzaka, com construções tradicionais de madeira, lojinhas, cerâmicas, doces japoneses e casas de chá, e continuem até o Santuário Yasaka.", "badge": "templo", "t": "city", "q": "Kiyomizu-dera, Kyoto"}, {"time": "17h30", "name": "Gion ao entardecer", "desc": "Sigam para Gion, o bairro tradicional das casas de chá e das geikos e maikos. Caminhem pela Hanamikoji observando a arquitetura e a atmosfera. Para uma pausa doce, a Kagizen Yoshifusa é uma opção tradicional, desde que ainda esteja aberta quando chegarem.", "badge": "passeio", "t": "city", "q": "Hanamikoji Street, Gion, Kyoto"}, {"time": "19h", "name": "Jantar em Pontocho", "desc": "Pontocho é uma rua supercharmosa, cheia de restaurantes e izakayas, próxima ao rio Kamo.", "badge": "jantar", "t": "lunch", "q": "Pontocho Alley, Kyoto"}], "route": "https://www.google.com/maps/dir/?api=1&travelmode=transit&origin=Lakeland%20Hotel%20Mizunosato%2C%20Fujikawaguchiko&destination=Kawaguchiko%20Station", "guide": {"locomover": ["Hotel → Kawaguchiko Station: peçam um táxi na recepção. O ônibus Fujiyama Connect sai às 9h20.", "Kawaguchiko → Mishima: ônibus Fujiyama Connect até Mishima Station (saída Norte), chegada às 10h50.", "Mishima → Kyoto: Shinkansen às 11h46, chegada às 13h37.", "Kyoto Station → Hotel: a poucos minutos de caminhada.", "Hotel → Kiyomizu-dera: recomendo táxi (15–25 min), seguido de caminhada até o templo.", "Kiyomizu-dera → Sannenzaka → Ninenzaka → Yasaka → Gion: tudo a pé.", "Gion → Pontocho: caminhada de 10–15 min.", "Pontocho → Hotel: táxi de cerca de 15 min ou trem pela linha Keihan até Shichijo, seguido de caminhada."], "comer": ["Almoço: comprem um ekiben (marmita japonesa) antes de embarcar no Shinkansen.", "Kagizen Yoshifusa (Gion): tradicional casa de doces japoneses, caso ainda esteja aberta.", "Pontocho: ótima região para jantar, com restaurantes em ruas estreitas e charmosas."]}}, {"label": "24/10", "date": "Sábado, 24 out", "title": "Kinkaku-ji, Arashiyama e Bosque de Bambu iluminado", "sub": "Dia com um começo mais calmo e uma experiência especial à noite: o Bosque de Bambu de Arashiyama iluminado.", "origin": "Daiwa Roynet Hotel Kyoto Ekimae Premier, 707-2 Higashishiokojicho, Karasuma-dori, Shimogyo-ku, Kyoto", "stops": [{"time": "10h", "name": "Kinkaku-ji — Pavilhão Dourado", "desc": "Tomem café sem pressa e saiam por volta das 10h. Comecem pelo famoso Kinkaku-ji, um dos templos mais bonitos de Kyoto, conhecido pela fachada dourada refletida no lago. A visita leva cerca de 1 hora.", "badge": "templo", "t": "city", "q": "Kinkaku-ji, Kyoto"}, {"time": "13h", "name": "Almoço em Arashiyama", "desc": "Aproveitem para almoçar e conhecer as lojinhas da rua principal. Por aqui há opções de soba, tofu japonês e doces de matcha.", "badge": "almoço", "t": "lunch", "q": "Arashiyama Togetsukyo, Kyoto"}, {"time": "14h", "name": "Templo Tenryu-ji e Ponte Togetsukyo", "desc": "Visitem os jardins do Templo Tenryu-ji, com seu lago e as montanhas ao fundo. Depois, caminhem até a Ponte Togetsukyo e aproveitem a paisagem às margens do rio Hozu. O Bosque de Bambu fica para a noite, quando vocês vão conhecê-lo de uma maneira completamente diferente!", "badge": "templo", "t": "city", "q": "Tenryu-ji, Arashiyama, Kyoto"}, {"time": "17h30", "name": "Shoraian — jantar", "desc": "Passem o fim de tarde em Arashiyama. Sugestão: o Shoraian, restaurante especializado em tofu japonês, para uma experiência gastronômica especial (a confirmar horário e reserva).", "badge": "jantar", "t": "lunch", "q": "Shoraian, Arashiyama, Kyoto", "website": "https://www.shoraian.jp/", "st": "warn", "stl": "A CONFIRMAR"}, {"time": "19h30", "name": "Arashiyama Bamboo Light-up (Tsukitouro)", "desc": "O Bosque de Bambu de Arashiyama iluminado, com instalações de luz que transformam a paisagem. O evento está previsto das 18h às 21h, com última entrada às 20h40. Sugestão: chegar por volta das 19h30, mas confiram as orientações do ingresso comprado. Deixem o QR Code salvo no celular e levem um casaco, porque a temperatura pode cair à noite.", "badge": "ingresso", "t": "city", "q": "Arashiyama Bamboo Grove, Kyoto", "st": "ok", "stl": "INGRESSO COMPRADO"}], "route": "https://www.google.com/maps/dir/?api=1&travelmode=transit&origin=Daiwa%20Roynet%20Hotel%20Kyoto%20Ekimae%20Premier%2C%20707-2%20Higashishiokojicho%2C%20Karasuma-dori%2C%20Shimogyo-ku%2C%20Kyoto&destination=Kinkaku-ji%2C%20Kyoto", "guide": {"locomover": ["Hotel → Kinkaku-ji: recomendo táxi (25–30 min), mais prático do que combinar ônibus e metrô.", "Kinkaku-ji → Arashiyama: táxi de 20–30 min. Alternativa: trem Randen, embarcando em Kitano-Hakubaicho e fazendo baldeação em Katabiranotsuji até Arashiyama.", "Arashiyama → Tenryu-ji → Ponte Togetsukyo: passeios a pé.", "Arashiyama → Floresta de Bambus: caminhada de 10–15 min a partir da região da ponte.", "Arashiyama → Hotel: caminhem até a estação JR Saga-Arashiyama e peguem a linha JR Sagano até Kyoto Station (15–20 min), depois a pé até o hotel."], "comer": ["Almoço em Arashiyama: restaurantes e cafés da região.", "Shoraian: tofu japonês, mediante confirmação de horário e reserva."], "importante": ["O ingresso para o Arashiyama Tsukitouro já está comprado. O evento acontece das 18h às 21h, com última entrada prevista às 20h40. Deixem o QR Code salvo no celular e confiram as instruções do ingresso."]}}, {"label": "25/10", "date": "Domingo, 25 out", "title": "Fushimi Inari, Nishiki e teamLab", "sub": "Começo cedo entre os milhares de portões vermelhos e, à tarde, uma exposição imersiva de arte e luz.", "origin": "Daiwa Roynet Hotel Kyoto Ekimae Premier, 707-2 Higashishiokojicho, Karasuma-dori, Shimogyo-ku, Kyoto", "stops": [{"time": "7h", "name": "Fushimi Inari + Mercado Nishiki", "desc": "Comecem cedo pelo Santuário Fushimi Inari, famoso pelos milhares de portões vermelhos que formam caminhos pela montanha. Sugestão: chegar por volta das 7h, antes das multidões. Caminhem pelos portões e, se estiverem dispostos, subam até o mirante de Yotsutsuji; não é preciso fazer a trilha inteira. Depois, Mercado Nishiki, a cozinha de Kyoto, cheio de comidas típicas, doces e produtos japoneses, e as galerias comerciais de Teramachi e Shinkyogoku, ótimas para compras.", "badge": "templo", "t": "city", "q": "Fushimi Inari Taisha, Kyoto"}, {"time": "14h", "name": "Almoço", "desc": "Experimentem as comidinhas do Mercado Nishiki ou escolham um restaurante na região. Para uma experiência especial, o Mishima-tei é famoso pelo sukiyaki de wagyu e exige reserva.", "badge": "almoço", "t": "lunch", "q": "Mishima-tei Teramachi, Kyoto", "website": "https://kyoto-mishimatei.com/"}, {"time": "16h30", "name": "teamLab Biovortex Kyoto", "desc": "Depois do almoço, voltem ao hotel para descansar. Às 16h15 saiam a pé para o teamLab Biovortex Kyoto (7 ou 8 minutos da saída Hachijo da estação). A entrada é às 16h30 e a visita média passa de 2h30: são mais de 50 obras imersivas em quatro andares. Deixem os ingressos e QR Codes salvos no celular.", "badge": "ingresso", "t": "city", "q": "teamLab Biovortex Kyoto", "st": "ok", "stl": "INGRESSO COMPRADO"}, {"time": "20h", "name": "Jantar na região da Estação de Kyoto", "desc": "A região da estação tem várias opções de restaurantes e lojas, especialmente nos centros comerciais próximos.", "badge": "jantar", "t": "lunch", "q": "Kyoto Station, Kyoto"}], "route": "https://www.google.com/maps/dir/?api=1&travelmode=transit&origin=Daiwa%20Roynet%20Hotel%20Kyoto%20Ekimae%20Premier%2C%20707-2%20Higashishiokojicho%2C%20Karasuma-dori%2C%20Shimogyo-ku%2C%20Kyoto&destination=Fushimi%20Inari%20Taisha%2C%20Kyoto", "guide": {"locomover": ["Hotel → Fushimi Inari: caminhem até Kyoto Station e peguem a linha JR Nara (trem local) até Inari, cerca de 5 min. O santuário fica em frente à estação.", "Fushimi Inari → Mercado Nishiki: caminhem até Fushimi-Inari Station (Keihan), peguem o trem até Gion-Shijo e sigam a pé por 10–15 min.", "Nishiki → Teramachi e Shinkyogoku: tudo caminhando, pois as galerias ficam próximas.", "Centro → teamLab: caminhem até Shijo Station e peguem a linha Karasuma até Kyoto Station; depois a pé até o museu, na região sul da estação.", "teamLab → Hotel: retorno a pé, 10–15 min."], "comer": ["Almoço: algum restaurante próximo aos passeios da manhã.", "Jantar: a região da Kyoto Station tem ótimas opções, especialmente nos centros comerciais."], "dica": "Cheguem cedo ao Fushimi Inari para aproveitar os portões vermelhos antes das multidões! Não é necessário subir a montanha inteira para ter uma experiência linda.", "importante": ["A entrada do teamLab Biovortex está marcada para as 16h30. Cheguem com antecedência e reservem cerca de 2h30 para a visita."]}}, {"label": "26/10", "date": "Segunda, 26 out", "title": "Bate e volta em Nara", "sub": "Nara, antiga capital do Japão, famosa pelos cervos que circulam livremente pelo parque.", "origin": "Daiwa Roynet Hotel Kyoto Ekimae Premier, 707-2 Higashishiokojicho, Karasuma-dori, Shimogyo-ku, Kyoto", "stops": [{"time": "8h", "name": "Bate e volta em Nara — Parque, Todai-ji e Kasuga Taisha", "desc": "Saiam de Kyoto por volta das 8h e sigam de trem para Nara. Comecem pelo Parque de Nara, onde os cervos circulam livremente (vocês podem comprar os biscoitinhos próprios para alimentá-los). Depois, conheçam o Templo Todai-ji, que abriga uma enorme estátua de Buda, e caminhem pelos jardins da região. Se estiverem dispostos, sigam até o Santuário Kasuga Taisha, conhecido pelos caminhos cercados de lanternas de pedra.", "badge": "templo", "t": "city", "q": "Todai-ji, Nara"}, {"time": "14h", "name": "Almoço e tarde em Nara", "desc": "Almocem com calma e explorem as lojinhas e ruas tradicionais. Vale passar na Nakatanidou, famosa pelo mochi preparado na hora, e conhecer a região de Naramachi, com casinhas antigas, cafés e lojas charmosas. No fim da tarde, retornem para Kyoto.", "badge": "almoço", "t": "lunch", "q": "Naramachi, Nara"}, {"time": "20h", "name": "Jantar tranquilo perto do hotel", "desc": "Sugestão: um jantar tranquilo perto do hotel e descanso, porque amanhã vocês seguem para Hiroshima.", "badge": "jantar", "t": "lunch", "q": "Kyoto Station, Kyoto"}], "route": "https://www.google.com/maps/dir/?api=1&travelmode=transit&origin=Daiwa%20Roynet%20Hotel%20Kyoto%20Ekimae%20Premier%2C%20707-2%20Higashishiokojicho%2C%20Karasuma-dori%2C%20Shimogyo-ku%2C%20Kyoto&destination=Nara%20Park%2C%20Nara", "guide": {"locomover": ["Hotel → Nara: caminhem até Kyoto Station e peguem o trem JR Miyakoji Rapid, da linha Nara, até JR Nara Station (45–50 min).", "JR Nara → Parque de Nara: caminhada de 20–25 min ou ônibus local.", "Parque → Todai-ji → Kasuga Taisha: a pé, aproveitando os jardins e os cervos.", "Kasuga Taisha → Naramachi: caminhada de 25–30 min ou ônibus, se estiverem cansados.", "Nara → Kyoto: retornem à JR Nara Station e peguem a linha JR Nara até Kyoto Station; depois a pé até o hotel."], "comer": ["Naramachi: ótima região para almoçar, com restaurantes tradicionais e cafés.", "Nakatanidou: famoso pelos mochis fresquinhos, uma parada deliciosa!"], "dica": "Os cervos de Nara são lindos, mas são animais selvagens! Se comprarem os biscoitos próprios para alimentá-los, guardem bem o restante e evitem provocá-los.", "importante": ["Amanhã vocês seguem para Hiroshima. Organizem o envio das malas grandes de Kyoto para o Travelodge Honmachi Osaka (onde ficam a partir de 29/10), levando apenas uma mala pequena para as duas noites em Hiroshima. Confirmem na recepção o prazo de entrega e se o hotel de Osaka aceita receber as bagagens antecipadamente."]}}], "p4": [{"label": "27/10", "date": "Terça, 27 out", "title": "Kyoto → Hiroshima e Parque Memorial da Paz", "sub": "Uma cidade marcada pela história e por uma emocionante mensagem de paz.", "origin": "Kyoto Station", "stops": [{"time": "9h", "name": "Checkout + Shinkansen para Hiroshima", "desc": "Sigam a pé para a estação de Kyoto. Shinkansen às 9h46, com chegada prevista às 11h27 (bilhete já comprado).", "badge": "transporte", "t": "city", "q": "Kyoto Station", "st": "ok", "stl": "BILHETE COMPRADO"}, {"time": "11h27", "name": "Chegada em Hiroshima + almoço (Okonomimura)", "desc": "Ao chegarem, deixem as malas no hotel e sigam para almoçar. Comecem experimentando o famoso okonomiyaki de Hiroshima, preparado em camadas com repolho, massa e macarrão. Sugestão: o Okonomimura, um prédio com vários pequenos restaurantes especializados nesse prato.", "badge": "almoço", "t": "lunch", "q": "Okonomimura, Hiroshima"}, {"time": "15h", "name": "Parque Memorial da Paz", "desc": "Conheçam o Parque Memorial da Paz, um dos lugares mais importantes da história do Japão: a Cúpula da Bomba Atômica, o Monumento às Crianças e o Cenotáfio. Depois, entrem no Museu Memorial da Paz, que conta a história do bombardeio de Hiroshima. Reservem cerca de 1h30 a 2h. É um passeio emocionante, que merece ser feito sem pressa.", "badge": "passeio", "t": "city", "q": "Hiroshima Peace Memorial Park"}, {"time": "19h", "name": "Jantar na região de Hondori", "desc": "Caminhem pela região de Hondori, cheia de lojas, restaurantes e izakayas. Hiroshima também é famosa pelas ostras, então vale experimentar em algum restaurante local!", "badge": "jantar", "t": "lunch", "q": "Hondori Shopping Street, Hiroshima"}], "route": "https://www.google.com/maps/dir/?api=1&travelmode=transit&origin=Kyoto%20Station&destination=Hotel%20Vista%2C%20Hiroshima", "guide": {"locomover": ["Hotel → Kyoto Station: a pé, poucos minutos.", "Kyoto → Hiroshima: Shinkansen às 9h46, chegada às 11h27.", "Hiroshima Station → Hotel Vista: tram (bonde) em direção ao centro, descendo em Hatchobori; depois, cerca de 5 min a pé.", "Hotel → Parque Memorial da Paz: 15–20 min a pé ou tram até Genbaku Dome-mae.", "Parque → Museu da Paz: cerca de 10 min a pé pelos jardins."], "comer": ["Okonomimura: edifício com vários restaurantes de okonomiyaki de Hiroshima.", "Centro de Hiroshima: boas opções de restaurantes e izakayas para o jantar."], "dica": "A visita ao Museu Memorial da Paz é intensa e emocionante. Reservem um tempo para conhecer tudo com calma, sem tentar encaixar muitos outros passeios no mesmo dia.", "importante": ["Como as malas grandes já seguiram para Osaka, viajem apenas com a bagagem necessária para as duas noites em Hiroshima. Amanhã é dia de Miyajima!"]}}, {"label": "28/10", "date": "Quarta, 28 out", "title": "Miyajima", "sub": "Uma das ilhas mais encantadoras do Japão, com o torii vermelho que parece flutuar no mar.", "origin": "Hotel Vista, 6-15 Teppocho, Naka Ward, Hiroshima", "stops": [{"time": "9h", "name": "Bate e volta em Miyajima", "desc": "Após o café, sigam para a estação de Hiroshima e peguem o trem até Miyajimaguchi. De lá, atravessem de ferry até a ilha. Comecem pelo Santuário Itsukushima, construído sobre a água, e caminhem pelas ruas tradicionais, onde também há cervos circulando livremente.", "badge": "templo", "t": "city", "q": "Itsukushima Shrine, Miyajima"}, {"time": "11h", "name": "Teleférico ao Monte Misen", "desc": "Se estiverem dispostos, subam de teleférico ao Monte Misen, com vista linda do Mar Interior de Seto. O teleférico não chega ao cume: ainda há uma caminhada com subidas e degraus. Façam isso mais cedo, pois o teleférico tem horário limitado; não deixem a subida para o fim da tarde.", "badge": "natureza", "t": "city", "q": "Miyajima Ropeway Momijidani Station"}, {"time": "13h30", "name": "Almoço em Miyajima", "desc": "Experimentem o anago-meshi (arroz com enguia-do-mar grelhada, especialidade local). Também vale provar as famosas ostras grelhadas e o momiji manju, doce típico em formato de folha. A rua Omotesando é cheia de restaurantes e lojinhas.", "badge": "almoço", "t": "lunch", "q": "Omotesando Shopping Street, Miyajima"}, {"time": "15h", "name": "Templo Daisho-in", "desc": "Se preferirem algo mais tranquilo, continuem explorando lojinhas, templos e paisagens. Vale conhecer o Templo Daisho-in, com seus jardins e pequenas estátuas. No fim da tarde, retornem para Hiroshima.", "badge": "templo", "t": "city", "q": "Daisho-in Temple, Miyajima"}], "route": "https://www.google.com/maps/dir/?api=1&travelmode=transit&origin=Hotel%20Vista%2C%206-15%20Teppocho%2C%20Naka%20Ward%2C%20Hiroshima&destination=Hiroshima%20Station", "guide": {"locomover": ["Hotel → Hiroshima Station: caminhem até Hatchobori e peguem o tram até Hiroshima Station (20–25 min).", "Hiroshima → Miyajimaguchi: linha JR Sanyo (cerca de 30 min).", "Miyajimaguchi → Miyajima: caminhem até o terminal e embarquem no ferry (cerca de 10 min).", "Porto → Santuário Itsukushima: 10–15 min a pé pelas ruas da ilha.", "Santuário → Monte Misen: a pé até a estação Momijidani do teleférico ou transporte de apoio, se disponível.", "Miyajima → Hotel: façam o trajeto inverso, de ferry e trem JR."], "comer": ["Rua Omotesando: restaurantes e lojinhas para provar as especialidades da ilha.", "Ostras de Hiroshima: uma das comidas mais famosas da região.", "Momiji manju: doce típico em formato de folha de bordo."], "importante": ["Para subir o Monte Misen, façam isso mais cedo: o teleférico tem horário limitado e ainda há caminhada. Os cervos são animais selvagens, então evitem alimentá-los."]}}], "p5": [{"label": "29/10", "date": "Quinta, 29 out", "title": "Hiroshima → Osaka e Dotonbori", "sub": "Chegada em uma das cidades mais animadas do Japão, com a noite em Dotonbori.", "origin": "Hotel Vista, Hiroshima", "stops": [{"time": "9h20", "name": "Checkout + estação de Hiroshima", "desc": "Saiam do hotel perto das 9h20 e peguem o bonde ou táxi até a estação. Cheguem às catracas do Shinkansen 20 minutos antes. Shinkansen às 10h03, chegada em Shin-Osaka às 11h28 (bilhete já comprado).", "badge": "transporte", "t": "city", "q": "Hiroshima Station", "st": "ok", "stl": "BILHETE COMPRADO"}, {"time": "11h28", "name": "Chegada em Osaka", "desc": "Após o check-in no hotel, a tarde é mais tranquila para se instalarem e começarem a explorar Osaka sem pressa. Se estiverem animados, passeiem pelas lojas e cafés da região de Shinsaibashi.", "badge": "hotel", "t": "hotel", "q": "Travelodge Honmachi Osaka"}, {"time": "19h", "name": "Jantar em Dotonbori", "desc": "Dotonbori é a região mais famosa de Osaka, cheia de letreiros gigantes, restaurantes e ruas iluminadas. Não deixem de ver o painel do Glico Running Man e caminhar às margens do canal. Depois, passem pela charmosa Hozenji Yokocho, ruazinha de pedra com lanternas e pequenos restaurantes, e aproveitem para jantar por lá, experimentando especialidades de Osaka.", "badge": "jantar", "t": "lunch", "q": "Dotonbori, Osaka"}], "optional": [{"time": "Tarde", "name": "Opcional — Castelo de Osaka", "desc": "Se estiverem animados depois da viagem, aproveitem a tarde para conhecer o Castelo de Osaka e seus jardins, um dos principais cartões-postais da cidade (vale a visita mesmo só pela área externa). Se quiserem entrar, façam a visita durante a tarde. Se estiverem cansados, podem pular e seguir direto para Shinsaibashi e Dotonbori.", "badge": "passeio", "t": "city", "q": "Osaka Castle"}], "route": "https://www.google.com/maps/dir/?api=1&travelmode=transit&origin=Hotel%20Vista%2C%20Hiroshima&destination=Hiroshima%20Station", "guide": {"locomover": ["Hotel → Hiroshima Station: caminhem até Hatchobori e peguem o tram até Hiroshima Station (20–25 min). Com malas, podem optar por táxi.", "Hiroshima → Shin-Osaka: Shinkansen às 10h03, chegada às 11h28.", "Shin-Osaka → Hotel: linha Midosuji até Honmachi (10–15 min) e depois a pé até o Travelodge.", "Hotel → Shinsaibashi: linha Midosuji, de Honmachi até Shinsaibashi (1 parada), ou 15–20 min a pé.", "Shinsaibashi → Dotonbori: a pé, 10–15 min.", "Dotonbori → Hotel: linha Midosuji, de Namba até Honmachi, seguida de caminhada. Se preferirem, táxi.", "Opcional · Castelo de Osaka: caminhem até Honmachi e peguem a linha Chuo até Tanimachi 4-chome (2 estações); depois, 15–20 min a pé até o castelo. Volta: linha Chuo até Hommachi, baldeação para Midosuji até Shinsaibashi."], "comer": ["Takoyaki: bolinhos de polvo, uma das especialidades mais famosas de Osaka.", "Okonomiyaki: espécie de panqueca japonesa preparada na chapa.", "Dotonbori: ótima região para experimentar comidas típicas e escolher um restaurante para jantar."], "dica": "Deixem Dotonbori para o fim da tarde e a noite, quando os letreiros ficam iluminados e a região ganha ainda mais vida!"}}, {"label": "30/10", "date": "Sexta, 30 out", "title": "Kuromon, Shinsekai e compras", "sub": "Dia para explorar a gastronomia de Osaka, a capital da comida de rua japonesa.", "origin": "Travelodge Honmachi Osaka, 3 Chome-2-6 Azuchimachi, Chuo Ward, Osaka", "stops": [{"time": "9h", "name": "Mercado Kuromon", "desc": "Um dos mais famosos de Osaka, cheio de barraquinhas com frutos do mar, espetinhos de wagyu, sushi e outras delícias japonesas. Experimentem algumas especialidades locais e passeiem sem pressa.", "badge": "passeio", "t": "city", "q": "Kuromon Ichiba Market, Osaka", "website": "https://kuromon.com/en/"}, {"time": "13h", "name": "Almoço — Mizuno (okonomiyaki)", "desc": "Depois, sigam para Namba e Dotonbori. Sugestão: o Mizuno, um dos restaurantes mais tradicionais de Osaka para provar okonomiyaki. Se a fila estiver muito grande, o Fukutaro é uma ótima alternativa.", "badge": "almoço", "t": "lunch", "q": "Mizuno Okonomiyaki Dotonbori, Osaka"}, {"time": "15h", "name": "Shinsekai + compras em Shinsaibashi", "desc": "Conheçam Shinsekai, bairro de atmosfera retrô com a famosa Torre Tsutenkaku. Vale experimentar o kushikatsu, os tradicionais espetinhos empanados de Osaka. Depois, sigam para Shinsaibashi, uma das melhores regiões para compras.", "badge": "passeio", "t": "city", "q": "Tsutenkaku Tower, Osaka"}, {"time": "19h", "name": "Jantar na região de Ura-Namba", "desc": "Se ainda estiverem animados, jantem em Ura-Namba, conhecida pelos pequenos restaurantes e izakayas. Sugestão: não estender muito a noite, porque amanhã é dia de Universal Studios Japan!", "badge": "jantar", "t": "lunch", "q": "Ura-Namba, Osaka"}], "route": "https://www.google.com/maps/dir/?api=1&travelmode=transit&origin=Travelodge%20Honmachi%20Osaka%2C%203%20Chome-2-6%20Azuchimachi%2C%20Chuo%20Ward%2C%20Osaka&destination=Kuromon%20Ichiba%20Market%2C%20Osaka", "guide": {"locomover": ["Hotel → Mercado Kuromon: caminhem até Honmachi e peguem a linha Midosuji até Namba; depois, 10–15 min a pé.", "Kuromon → Namba/Dotonbori: caminhada de 10–15 min.", "Namba → Shinsekai: linha Midosuji, de Namba até Dobutsuen-mae, e cerca de 10 min a pé até a Torre Tsutenkaku.", "Shinsekai → Shinsaibashi: linha Midosuji, de Dobutsuen-mae até Shinsaibashi.", "Shinsaibashi → Ura-Namba: 15–20 min a pé ou metrô até Namba.", "Namba → Hotel: linha Midosuji até Honmachi e caminhada até o Travelodge."], "comer": ["Mercado Kuromon: espetinhos de wagyu, sushi e outras especialidades.", "Mizuno (Dotonbori): tradicional okonomiyaki, sugestão para o almoço.", "Fukutaro: ótima alternativa caso a fila do Mizuno esteja grande.", "Shinsekai: experimentem o kushikatsu, os famosos espetinhos empanados."], "dica": "Osaka é uma cidade para experimentar comidas diferentes! Aproveitem o Mercado Kuromon sem pressa e deixem espaço para provar o okonomiyaki e o kushikatsu ao longo do dia."}}, {"label": "31/10", "date": "Sábado, 31 out", "title": "Universal Studios Japan — Halloween", "sub": "Dia de diversão: cenários de Harry Potter, Super Nintendo World e a programação especial de Halloween.", "origin": "Travelodge Honmachi Osaka, 3 Chome-2-6 Azuchimachi, Chuo Ward, Osaka", "stops": [{"time": "~9h", "name": "Chegada ao parque", "desc": "Saiam cedo do hotel e tentem chegar ao parque cerca de 30–45 minutos antes da abertura oficial (confiram o horário no aplicativo da Universal, que é obrigatório no parque). Aproveitem a manhã para conhecer o parque e fazer atrações sem horário marcado no Express Pass. O Express Pass também inclui Harry Potter and the Forbidden Journey e atrações de escolha, como JAWS ou Jurassic Park e The Flying Dinosaur ou Minion Mayhem: confiram horários e condições nos ingressos.", "badge": "ingresso", "t": "city", "q": "Universal Studios Japan, Osaka", "st": "ok", "stl": "EXPRESS PASS COMPRADO"}, {"time": "11h50", "name": "Flight of the Hippogriff", "desc": "Horário reservado: 11h50–12h20, na área de Harry Potter.", "badge": "ingresso", "t": "city", "q": "Universal Studios Japan, Osaka", "st": "ok", "stl": "HORÁRIO RESERVADO"}, {"time": "~12h30", "name": "Almoço — Three Broomsticks", "desc": "Sugestão: aproveitem a área de Harry Potter para conhecer o Three Broomsticks, restaurante temático onde também podem experimentar a famosa cerveja amanteigada. No Super Nintendo World, vale conhecer o Kinopio's Cafe, se houver disponibilidade. Sem horário definido no roteiro.", "badge": "almoço", "t": "lunch", "q": "Universal Studios Japan, Osaka"}, {"time": "14h", "name": "Super Nintendo World + Mario Kart", "desc": "Horários reservados: 14h–15h entrada no Super Nintendo World; 14h–14h30 Mario Kart: Koopa's Challenge; 14h30–15h Yoshi's Adventure.", "badge": "ingresso", "t": "city", "q": "Super Nintendo World, Universal Studios Japan, Osaka", "st": "ok", "stl": "HORÁRIO RESERVADO"}, {"time": "15h", "name": "Mine Cart Madness (Donkey Kong)", "desc": "Horário reservado: 15h–15h30, na área de Donkey Kong.", "badge": "ingresso", "t": "city", "q": "Universal Studios Japan, Osaka", "st": "ok", "stl": "HORÁRIO RESERVADO"}, {"time": "17h", "name": "Illumination's Villain-Con Minion Blast", "desc": "Horário reservado: 17h–17h30.", "badge": "ingresso", "t": "city", "q": "Universal Studios Japan, Osaka", "st": "ok", "stl": "HORÁRIO RESERVADO"}, {"time": "~19h", "name": "Noite de Halloween", "desc": "Como é Halloween, o parque pode ter programação especial de terror e atrações temáticas. Se estiverem animados, aproveitem a experiência! Caso contrário, podem voltar mais cedo para descansar. Sem horário definido no roteiro.", "badge": "passeio", "t": "city", "q": "Universal Studios Japan, Osaka"}], "route": "https://www.google.com/maps/dir/?api=1&travelmode=transit&origin=Travelodge%20Honmachi%20Osaka%2C%203%20Chome-2-6%20Azuchimachi%2C%20Chuo%20Ward%2C%20Osaka&destination=Universal%20Studios%20Japan%2C%20Osaka", "guide": {"locomover": ["Hotel → Universal: caminhem até Honmachi e peguem a linha Midosuji até Umeda; sigam as placas para a estação JR Osaka.", "Osaka → Universal City: linha JR Osaka Loop, sentido Nishikujo, e baldeação para a JR Yumesaki Line até Universal City (alguns trens seguem direto).", "Universal City → Parque: cerca de 5 min a pé.", "Retorno: trajeto inverso, via JR Osaka e metrô Midosuji até Honmachi. Reservem 40–50 minutos por trecho."], "comer": ["Three Broomsticks: restaurante temático de Harry Potter, com a famosa cerveja amanteigada.", "Kinopio's Cafe: restaurante do Super Nintendo World, sujeito à disponibilidade."], "dica": "Cheguem ao parque antes da abertura e aproveitem a manhã para conhecer as atrações sem horário marcado. Organizem o passeio em torno dos horários do Express Pass, principalmente da entrada no Super Nintendo World!", "importante": ["O Express Pass já está comprado, com horários reservados para Flight of the Hippogriff, Mario Kart, Yoshi, Mine Cart Madness e Minion Blast. Confiram todos os horários no ingresso e deixem os QR Codes salvos no celular. A entrada no Super Nintendo World está marcada para 14h–15h."]}}, {"label": "01/11", "date": "Domingo, 1 nov", "title": "Bate e volta a Kobe + Umeda Sky Building", "sub": "Dia para provar a autêntica carne de Kobe e terminar com uma vista panorâmica de Osaka.", "origin": "Travelodge Honmachi Osaka, 3 Chome-2-6 Azuchimachi, Chuo Ward, Osaka", "stops": [{"time": "10h", "name": "Bate e volta a Kobe — carne de Kobe no Mouriya Honten", "desc": "ANTES de sair: consultem a recepção sobre o envio das malas grandes para o Daiwa Roynet Hotel Tokyo Kyobashi Premier, onde ficam a partir de 02/11. Confirmem o prazo de entrega; se não for possível garantir a chegada em 02/11, levem as malas no Shinkansen. Hoje podem começar um pouco mais tarde! Sigam de trem para Kobe, cidade portuária a cerca de 30 minutos de Osaka. A grande experiência do dia é provar a famosa carne de Kobe, preparada na chapa por um chef. Sugestão: o Mouriya Honten, restaurante tradicional especializado nessa carne. Recomendo reservar antecipadamente. Depois, caminhem pela região do porto e pelo Meriken Park. Se animados, explorem o bairro de Kitano, de casarões históricos, mas priorizem o porto para não deixar o dia corrido.", "badge": "almoço", "t": "lunch", "q": "Mouriya Honten, Kobe", "website": "https://www.mouriya.co.jp/", "st": "warn", "stl": "RESERVAR"}, {"time": "15h30", "name": "Retorno a Osaka", "desc": "Retornem a Osaka no fim da tarde.", "badge": "transporte", "t": "city", "q": "Osaka Station"}, {"time": "16h30", "name": "Umeda Sky Building (pôr do sol)", "desc": "Observatório com uma vista panorâmica incrível da cidade. Sugestão: subir por volta das 16h30 para acompanhar o pôr do sol, previsto para perto das 17h. Assim vocês veem Osaka de dia e a cidade se iluminando!", "badge": "passeio", "t": "city", "q": "Umeda Sky Building, Osaka"}, {"time": "~18h30", "name": "Jantar em Umeda ou Kitashinchi", "desc": "Regiões cheias de restaurantes e bares japoneses, próximas ao observatório.", "badge": "jantar", "t": "lunch", "q": "Kitashinchi, Osaka"}], "route": "https://www.google.com/maps/dir/?api=1&travelmode=transit&origin=Travelodge%20Honmachi%20Osaka%2C%203%20Chome-2-6%20Azuchimachi%2C%20Chuo%20Ward%2C%20Osaka&destination=Sannomiya%20Station%2C%20Kobe", "guide": {"locomover": ["Hotel → Kobe: caminhem até Honmachi e peguem a linha Midosuji até Umeda. Na estação JR Osaka, embarquem no JR Special Rapid até Sannomiya (cerca de 25 min).", "Sannomiya → Mouriya Honten: 5–10 min a pé.", "Mouriya → Meriken Park: 20–25 min a pé ou táxi.", "Kobe → Osaka: retornem à estação JR Sannomiya e peguem o JR Special Rapid até Osaka.", "Osaka Station → Umeda Sky Building: 10–15 min a pé.", "Umeda → Hotel: linha Midosuji até Honmachi e caminhada até o Travelodge."], "comer": ["Mouriya Honten: carne de Kobe. Recomendo reservar antecipadamente.", "Jantar: restaurantes de Umeda ou Kitashinchi, próximos ao observatório."], "dica": "Tentem chegar ao Umeda Sky Building antes do pôr do sol, previsto para perto das 17h.", "importante": ["Amanhã vocês retornam a Tóquio! Consultem a recepção sobre o envio das malas grandes para o hotel em Tokyo Kyobashi. Confirmem o prazo de entrega; se não houver garantia de chegada no dia 02/11, levem as malas no Shinkansen.", "A partir de 01/11 muda o sistema de Tax Free (veja o Guia): o reembolso passa a ser pedido no aeroporto, na saída do Japão."]}}], "p6": [{"label": "02/11", "date": "Segunda, 2 nov", "title": "Osaka → Tóquio, Marunouchi e Nihonbashi", "sub": "Volta a Tóquio para os últimos dias, com a fachada histórica da Estação de Tóquio e bairros que misturam tradição e modernidade.", "origin": "Travelodge Honmachi Osaka", "stops": [{"time": "9h", "name": "Checkout + Shinkansen para Tóquio", "desc": "Após o café, façam o checkout e sigam para a estação Shin-Osaka. Shinkansen às 10h06, chegada em Tóquio às 12h33 (bilhete comprado). Durante a viagem, se o céu estiver limpo, vocês poderão avistar o Monte Fuji pela janela (no sentido Osaka → Tóquio, a vista costuma ficar do lado esquerdo do trem). Sigam para o hotel (10–15 min a pé da Estação de Tóquio ou táxi com as malas) e deixem as bagagens.", "badge": "transporte", "t": "city", "q": "Shin-Osaka Station", "st": "ok", "stl": "BILHETE COMPRADO"}, {"time": "14h", "name": "Almoço — 400°C Pizza", "desc": "Prioridade para o almoço, ainda sem reserva confirmada. Como depende de confirmação, mantenham os passeios da tarde flexíveis.", "badge": "almoço", "t": "lunch", "q": "400°C Pizza Kagurazaka, Tokyo", "website": "https://400do-pizza.com/", "st": "warn", "stl": "RESERVA A CONFIRMAR"}, {"time": "16h", "name": "Marunouchi + Muromachi e Nihonbashi", "desc": "Comecem pela região da Estação de Tóquio, famosa pela fachada histórica de tijolos vermelhos. Vale subir ao terraço do KITTE, com vista linda da estação, e caminhar por Marunouchi, região elegante, cheia de lojas e cafés. Se estiverem dispostos, continuem até Nihonbashi, com lojas tradicionais, a famosa Mitsukoshi e o complexo Coredo Muromachi.", "badge": "passeio", "t": "city", "q": "KITTE Marunouchi, Tokyo"}, {"time": "20h", "name": "Jantar — Ten Yokota Asue", "desc": "Sugestão para um jantar especial de tempurá japonês.", "badge": "jantar", "t": "lunch", "q": "Ten Yokota Asue, Tokyo", "website": "https://www.ten-yokota.com/"}], "route": "https://www.google.com/maps/dir/?api=1&travelmode=transit&origin=Travelodge%20Honmachi%20Osaka&destination=Shin-Osaka%20Station", "guide": {"locomover": ["Hotel → Shin-Osaka: caminhem até Honmachi e peguem a linha Midosuji, sentido Shin-Osaka (cerca de 15 min).", "Shin-Osaka → Tokyo Station: Shinkansen às 10h06, chegada às 12h33.", "Tokyo Station → Hotel: 10–15 min a pé até o Daiwa Roynet Tokyo Kyobashi Premier, ou táxi com as malas.", "Hotel → 400°C Pizza (Kagurazaka): linha Ginza de Kyobashi até Nihombashi e linha Tozai até Kagurazaka (cerca de 20 min).", "400°C Pizza → Marunouchi/KITTE: linha Tozai de Kagurazaka até Otemachi e caminhada de 10 min.", "Marunouchi → Nihonbashi/Muromachi: caminhada de 15–20 min.", "Nihonbashi → Hotel: linha Ginza, de Mitsukoshimae até Kyobashi, seguida de caminhada."], "comer": ["400°C Pizza: prioridade para o almoço, ainda sem reserva confirmada.", "Ten Yokota Asue: sugestão para um jantar especial de tempurá japonês."], "importante": ["Confirmem o recebimento das malas no hotel de Tóquio, caso tenham usado o serviço de envio."]}}, {"label": "03/11", "date": "Terça, 3 nov", "title": "Yanaka, Nezu, Ueno e Yakiniku Ushigoro", "sub": "Hoje é o Dia da Cultura, feriado nacional no Japão. Um lado mais tradicional e tranquilo de Tóquio, com jantar especial reservado em Ginza.", "origin": "Daiwa Roynet Hotel Tokyo Kyobashi Premier, 2 Chome-8-20 Kyobashi, Chuo City, Tokyo", "stops": [{"time": "9h", "name": "Passeio por Yanaka", "desc": "Hoje é feriado nacional (Dia da Cultura): algumas regiões podem estar mais movimentadas. Comecem por Yanaka, um dos bairros mais tradicionais de Tóquio, com ruazinhas antigas, pequenos templos e lojas artesanais. Passeiem pela Yanaka Ginza, rua comercial cheia de lojinhas e comidinhas: experimentem os croquetes de carne e os doces típicos.", "badge": "passeio", "t": "city", "q": "Yanaka Ginza, Tokyo"}, {"time": "13h", "name": "Almoço em Yanaka", "desc": "Sugestão: almoçar pela própria região, escolhendo um dos pequenos restaurantes ou aproveitando as comidinhas da Yanaka Ginza.", "badge": "almoço", "t": "lunch", "q": "Yanaka Ginza, Tokyo"}, {"time": "15h", "name": "Santuário Nezu + Parque de Ueno", "desc": "Sigam para o Santuário Nezu, famoso pelos caminhos de portões vermelhos e jardins tranquilos. Continuem até o Parque de Ueno, um dos mais conhecidos de Tóquio, onde fica o Lago Shinobazu. Deixem um tempinho para descansar antes do jantar.", "badge": "templo", "t": "city", "q": "Nezu Shrine, Tokyo"}, {"time": "19h", "name": "Jantar — Yakiniku Ushigoro Ginza", "desc": "Reserva confirmada para 2 pessoas, às 19h, em lugares no balcão. Endereço: Kirarito Ginza, 7º andar, 1-8-19 Ginza, Chuo-ku. A reserva é apenas da mesa, sem menu previamente escolhido, e a ocasião informada foi o casamento de vocês. Cheguem com cerca de 10 minutos de antecedência e tenham a confirmação da reserva salva no celular. Wagyu japonês.", "badge": "jantar", "t": "lunch", "q": "Yakiniku Ushigoro Ginza, Kirarito Ginza, Tokyo", "website": "https://ushigoro.com/shop/ginza/", "st": "ok", "stl": "RESERVA CONFIRMADA"}], "optional": [{"time": "Tarde", "name": "Opcional — Museu Nacional de Tóquio", "desc": "Se tiverem interesse em museus, o Museu Nacional de Tóquio, no Parque de Ueno, é uma boa opção, mas a agência deixaria como passeio opcional.", "badge": "passeio", "t": "city", "q": "Tokyo National Museum, Ueno"}], "route": "https://www.google.com/maps/dir/?api=1&travelmode=transit&origin=Daiwa%20Roynet%20Hotel%20Tokyo%20Kyobashi%20Premier%2C%202%20Chome-8-20%20Kyobashi%2C%20Chuo%20City%2C%20Tokyo&destination=Yanaka%20Ginza%2C%20Tokyo", "guide": {"locomover": ["Hotel → Yanaka: linha Ginza de Kyobashi até Ueno e JR Yamanote por 2 estações até Nippori.", "Yanaka → Santuário Nezu: caminhada de 20–25 min ou táxi.", "Nezu → Parque de Ueno: caminhada de 15–20 min.", "Ueno → Hotel: linha Ginza, de Ueno até Kyobashi, seguida de caminhada.", "Hotel → Ushigoro Ginza: caminhada de 10–15 min ou táxi."], "comer": ["Yanaka Ginza: croquetes, doces e comidinhas de rua para o almoço.", "Yakiniku Ushigoro Ginza: jantar especial com wagyu japonês. Reserva confirmada!"], "dica": "Hoje é o Dia da Cultura, feriado nacional no Japão, então algumas regiões podem estar mais movimentadas. Aproveitem Yanaka sem pressa e deixem um tempinho para descansar antes do jantar!"}}, {"label": "04/11", "date": "Quarta, 4 nov", "title": "Tsukiji, Nakameguro e último jantar", "sub": "Último dia inteiro no Japão: mercado de sushi, um bairro charmoso com canal e as últimas comprinhas em Ginza.", "origin": "Daiwa Roynet Hotel Tokyo Kyobashi Premier, 2 Chome-8-20 Kyobashi, Chuo City, Tokyo", "stops": [{"time": "10h", "name": "Mercado Externo de Tsukiji + Nakameguro", "desc": "Comecem pelo Mercado Externo de Tsukiji, famoso pelas barraquinhas de comida japonesa: sushi fresco, tamagoyaki (omelete japonês), frutos do mar e outras especialidades. Depois, sigam para Nakameguro, bairro charmoso com cafés, lojinhas e um canal arborizado, perfeito para caminhar. Atenção: saiam de Nakameguro por volta das 12h50 para chegar com folga ao almoço das 13h30 em Ginza.", "badge": "passeio", "t": "city", "q": "Tsukiji Outer Market, Tokyo", "website": "https://www.tsukiji.or.jp/english/"}, {"time": "13h30", "name": "Almoço — Rare Tendon Ginza Mitsuyoshi", "desc": "Reserva confirmada para 2 pessoas, às 13h30, na unidade principal de Ginza. Tradicional tempurá sobre arroz. Cheguem com cerca de 10 minutos de antecedência e deixem a confirmação da reserva salva no celular (o código está no e-mail de confirmação).", "badge": "almoço", "t": "lunch", "q": "Rare Tendon Ginza Mitsuyoshi, Tokyo", "st": "ok", "stl": "RESERVA CONFIRMADA"}, {"time": "15h", "name": "Retorno ao hotel", "desc": "Retornem ao hotel por volta das 15h para organizar as malas e descansar antes do jantar. Aproveitem para fazer as últimas comprinhas em Ginza.", "badge": "hotel", "t": "hotel", "q": "Daiwa Roynet Hotel Tokyo Kyobashi Premier"}, {"time": "19h", "name": "Jantar — Ginza Kyubey", "desc": "Sugestão para um último jantar especial de sushi.", "badge": "jantar", "t": "lunch", "q": "Ginza Kyubey, Tokyo", "website": "https://www.kyubey.jp/"}], "route": "https://www.google.com/maps/dir/?api=1&travelmode=transit&origin=Daiwa%20Roynet%20Hotel%20Tokyo%20Kyobashi%20Premier%2C%202%20Chome-8-20%20Kyobashi%2C%20Chuo%20City%2C%20Tokyo&destination=Tsukiji%20Outer%20Market%2C%20Tokyo", "guide": {"locomover": ["Hotel → Tsukiji: caminhem até Takaracho e peguem a linha Toei Asakusa até Higashi-Ginza; depois, cerca de 10 min a pé.", "Tsukiji → Nakameguro: caminhem até Higashi-Ginza, peguem a linha Hibiya até Naka-meguro (25–30 min).", "Nakameguro → Ginza: linha Hibiya direto até Ginza (cerca de 20 min). O Rare Tendon fica a 4 min a pé da estação Ginza.", "Ginza → Hotel: caminhada de 10–15 min."], "comer": ["Mercado de Tsukiji: sushi fresco, tamagoyaki e outras especialidades.", "Rare Tendon Ginza Mitsuyoshi: almoço reservado para experimentar o tradicional tempurá sobre arroz.", "Ginza Kyubey: sugestão para um último jantar especial de sushi."], "importante": ["Rare Tendon Ginza Mitsuyoshi: reserva confirmada para 2 pessoas, às 13h30. Saiam de Nakameguro por volta das 12h50.", "Compras com tax free a partir de 01/11: o reembolso é pedido no aeroporto, antes do embarque. Guardem as notas e os produtos intactos (veja o Guia)."]}}, {"label": "05/11", "date": "Quinta, 5 nov", "title": "Despedida do Japão — Tóquio → EUA → Brasil", "sub": "Dia de se despedir do Japão: saída do hotel às 7h rumo ao Aeroporto de Haneda.", "origin": "Daiwa Roynet Hotel Tokyo Kyobashi Premier", "stops": [{"time": "7h", "name": "Checkout + ida ao aeroporto de Haneda", "desc": "Sugestão: acordar por volta das 6h30, fazer o checkout e sair do hotel às 7h. Transporte público: caminhem até a estação Takaracho e peguem um trem da linha Toei Asakusa com serviço direto pela Keikyu até Haneda (confiram o destino do trem e o terminal indicado na passagem; 40–50 min, incluindo a caminhada). Táxi: alternativa mais confortável com as malas. Cheguem com cerca de 3 horas de antecedência, por causa do Tax Free, despacho das malas, segurança e imigração. Nas compras feitas a partir de 01/11 será necessário validar a saída dos produtos do Japão para receber o reembolso.", "badge": "transporte", "t": "city", "q": "Haneda Airport Terminal 3, Tokyo"}, {"time": "11h05", "name": "Voo Tóquio (HND) → Nova York (JFK)", "desc": "Japan Airlines. Embarque 05/11 às 11h05, chegada 05/11 às 9h50 (mesmo dia, por causa do fuso).", "badge": "transporte", "t": "city", "q": "Haneda Airport Terminal 3, Tokyo"}, {"time": "18h35", "name": "Voo Nova York (JFK) → São Paulo (GRU)", "desc": "American. Embarque 05/11 às 18h35, chegada 06/11 às 6h05.", "badge": "transporte", "t": "city", "q": "John F. Kennedy International Airport"}, {"time": null, "name": "06/11 · 13h05 — Voo São Paulo (GRU) → Recife (REC)", "desc": "Azul. Embarque 06/11 às 13h05, chegada às 16h10.", "badge": "transporte", "t": "city", "q": "Guarulhos International Airport"}], "route": "https://www.google.com/maps/dir/?api=1&travelmode=transit&origin=Daiwa%20Roynet%20Hotel%20Tokyo%20Kyobashi%20Premier&destination=Haneda%20Airport%20Terminal%203%2C%20Tokyo", "guide": {"importante": ["Pesem as malas antes do voo de volta. Lojas como a Don Quijote vendem balança de mão. Facas japonesas e líquidos vão sempre na mala despachada.", "A volta passa pelos EUA (JFK): reservem tempo para imigração e conexão."]}}]};
+
+// ─── helpers ─────────────────────────────────────────────────────────────────
+const TC={hotel:"#C06060",famous:"#A090D4",boutique:"#5AAF78",lunch:"#CF8050",almoco:"#CF8050",city:"#909090",cidade:"#909090",mountain:"#6898C0",montanha:"#6898C0"};
+// Per-stop palette: cada atração recebe uma cor única por índice (independente do tipo)
+const STOP_COLORS=["#E05A5A","#7B68C8","#4CAF70","#D4845A","#4A8FC8","#C8A030","#D45A8F","#4ABCBC"];
+const BC={passeio:"b-montanha",templo:"b-templo",natureza:"b-boutique",transporte:"b-cidade",ingresso:"b-famous",famosa:"b-famous",boutique:"b-boutique",almoco:"b-almoco","almoço":"b-almoco",jantar:"b-jantar",cidade:"b-cidade",montanha:"b-montanha",hotel:"b-hotel"};
+const SC={ok:"s-ok",warn:"s-warn",nohr:"s-nohr"};
+
+// ── Meal detection — drives the "Almoço/Jantar" highlight on food stops ────
+function isMealStop(s){ return s.t==='lunch'||s.badge==='almoco'; }
+function mealKind(time){
+  if(!time) return "Almoço";
+  const m=time.match(/~?(\d{1,2})h/);
+  if(!m) return "Almoço";
+  const h=parseInt(m[1],10);
+  return h>=18?"Jantar":"Almoço";
+}
+function mealTagHtml(s){
+  const k=mealKind(s.time);
+  return `<span class="meal-tag">${k==="Jantar"?"🌙":"🍽️"} ${k}</span>`;
+}
+
+// Escape & in URLs for HTML attribute context
+function eu(u){return u?u.replace(/&/g,"&amp;"):"";}
+// Escape text for HTML
+function et(s){return s?String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"):"";}
+
+// Brand logo SVGs
+const LOGO={
+  gm:`<svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>`,
+  wz:`<span aria-hidden="true" style="display:inline-block;width:19px;height:21px;background:url(waze-logo.png) no-repeat;background-size:62px 18px;background-position:-43px 0;flex-shrink:0"></span>`,
+  wa:`<svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>`,
+  ap:`<svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>`,
+  ig:`<svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>`
+};
+
+// Hotels — departure point for each phase
+const HOTELS={"p1": {"name": "Hotel Henn Tokyo Ginza", "addr": "2 Chome-2-1 Tsukiji, Chuo City, Tokyo 104-0045", "din": "18/10", "dout": "22/10", "gmaps": "https://www.google.com/maps/place/data=!4m2!3m1!1s0x60188960138fe8c9:0x631c10e9a14fca22"}, "p2": {"name": "Lakeland Hotel Mizunosato (ryokan)", "addr": "1070 Kodachi, Fujikawaguchiko, Minamitsuru District, Yamanashi", "din": "22/10", "dout": "23/10", "gmaps": null}, "p3": {"name": "Daiwa Roynet Hotel Kyoto Ekimae Premier", "addr": "707-2 Higashishiokojicho, Karasuma-dori, Shimogyo-ku, Kyoto", "din": "23/10", "dout": "27/10", "gmaps": null}, "p4": {"name": "Hotel Vista", "addr": "6-15 Teppocho, Naka Ward, Hiroshima", "din": "27/10", "dout": "29/10", "gmaps": null}, "p5": {"name": "Travelodge Honmachi Osaka", "addr": "3 Chome-2-6 Azuchimachi, Chuo Ward, Osaka", "din": "29/10", "dout": "02/11", "gmaps": null}, "p6": {"name": "Daiwa Roynet Hotel Tokyo Kyobashi Premier", "addr": "2 Chome-8-20 Kyobashi, Chuo City, Tokyo", "din": "02/11", "dout": "05/11", "gmaps": null}};
+const PHASES=[["p1", "🗼 Tóquio · 16–22/10"], ["p2", "🗻 Monte Fuji · 22–23/10"], ["p3", "⛩️ Kyoto · 23–27/10"], ["p4", "🕊️ Hiroshima · 27–29/10"], ["p5", "🏯 Osaka · 29/10–02/11"], ["p6", "🗼 Tóquio · 02–05/11"]];
+
+// ─── Roteiro: status (realizado/pendente) + reagendamento + recálculo de rota ──
+const PHASE_NAME=Object.fromEntries(PHASES.map(([k,l])=>[k,l.replace(/^\S+\s+/,"")]));
+
+// Regenera o link de rota do dia (Google Maps, transporte público) a partir da primeira parada atual.
+function mapsDirUrl(o,d){ return "https://www.google.com/maps/dir/?api=1&travelmode=transit&origin="+encodeURIComponent(o)+"&destination="+encodeURIComponent(d); }
+function rebuildRouteUrl(day,phase){
+  const first=(day.stops||[]).find(s=>s.q);
+  if(!first) return;
+  const h=HOTELS[phase];
+  day.route=mapsDirUrl(day.origin||(h?h.name+", "+h.addr:""),first.q);
+}
+
+// Reordena as paradas do dia pela melhor rota (vizinho mais próximo a partir do hotel) e regenera os links.
+function optimizeDay(day,phase){
+  const o=HOTELS[phase];
+  const withPt=(day.stops||[]).filter(s=>s.lat&&s.lng);
+  const noPt=(day.stops||[]).filter(s=>!(s.lat&&s.lng));
+  if(withPt.length>1&&o){
+    const rem=withPt.slice(),ord=[];let cx=o.lat,cy=o.lng;
+    while(rem.length){
+      let bi=0,bd=Infinity;
+      for(let i=0;i<rem.length;i++){const dx=rem[i].lat-cx,dy=rem[i].lng-cy,d=dx*dx+dy*dy;if(d<bd){bd=d;bi=i;}}
+      const n=rem.splice(bi,1)[0];ord.push(n);cx=n.lat;cy=n.lng;
+    }
+    day.stops=ord.concat(noPt);
+  }
+  rebuildRouteUrl(day,phase);
+}
+
+// Baseline: move a Escala Humana para o dia da Zuccardi (Seg 8 set) como opcional à tarde.
+function applyBaseline(){}
+
+// IDs estáveis por parada (origem fixa) — sobrevivem a movimentações.
+function assignIds(){
+  for(const p in DATA) DATA[p].forEach(d=>(d.stops||[]).forEach(s=>{ if(!s._id) s._id=p+"|"+d.label+"|"+s.name; }));
+}
+
+// Persistência do plano (status + movimentações) em localStorage.
+const PKEY="toquio-hugo-maga-plan";
+let PLAN={status:{},moves:[],meals:{},splits:{},fx:{usd:0,brl:0}};
+function loadPlanLS(){ try{const r=localStorage.getItem(PKEY); if(r){const o=JSON.parse(r); PLAN={status:o.status||{},moves:o.moves||[],meals:o.meals||{},splits:o.splits||{},fx:o.fx||{usd:0,brl:0}};}}catch(e){} }
+function savePlan(){ try{localStorage.setItem(PKEY,JSON.stringify(PLAN));}catch(e){} }
+
+// ─── Refeições a definir (almoço/jantar escolhidos na hora) ──────────────────
+// Chave estável por dia+refeição; guarda só o nome do restaurante escolhido.
+function mealKey(phase,label,meal){ return phase+"|"+label+"|"+meal; }
+function mealOptions(day,meal){ return (meal==="almoço"?day.lunchOptions:day.dinnerOptions)||[]; }
+function chosenMeal(phase,day,meal){
+  const n=PLAN.meals[mealKey(phase,day.label,meal)];
+  return n?mealOptions(day,meal).find(o=>o.name===n)||null:null;
+}
+function setMeal(phase,day,meal,name){
+  const k=mealKey(phase,day.label,meal);
+  if(name) PLAN.meals[k]=name; else delete PLAN.meals[k];
+  savePlan(); renderDay();
+}
+// Hora de início (em minutos) usada para ordenar paradas e refeições na timeline.
+function startMin(t){
+  if(!t) return 1e6;
+  const m=String(t).match(/~?(\d{1,2})h(\d{2})?/);
+  return m?parseInt(m[1])*60+(m[2]?parseInt(m[2]):0):1e6;
+}
+
+function locateStop(id){
+  for(const p in DATA){const arr=DATA[p];for(let k=0;k<arr.length;k++){const ss=arr[k].stops||[];const si=ss.findIndex(s=>s._id===id);if(si>=0)return{ph:p,day:arr[k],si};}}
+  return null;
+}
+function dayByKey(key){const a=key.split("|"),p=a[0],l=a[1];const day=(DATA[p]||[]).find(d=>d.label===l);return day?{ph:p,day}:null;}
+
+// Reaplica as movimentações salvas e os status sobre o DATA base.
+function applyPlan(){
+  (PLAN.moves||[]).forEach(mv=>{
+    const loc=locateStop(mv.id),tgt=dayByKey(mv.to);
+    if(!loc||!tgt||loc.day===tgt.day) return;
+    const st=loc.day.stops.splice(loc.si,1)[0];
+    tgt.day.stops.push(st);
+    rebuildRouteUrl(loc.day,loc.ph);
+    optimizeDay(tgt.day,tgt.ph);
+  });
+  for(const p in DATA) DATA[p].forEach(d=>(d.stops||[]).forEach(s=>{ s._status=PLAN.status[s._id]||null; }));
+}
+
+function setStatus(stop,state){
+  if(state) PLAN.status[stop._id]=state; else delete PLAN.status[stop._id];
+  stop._status=state||null; savePlan();
+}
+
+applyBaseline();
+assignIds();
+loadPlanLS();
+applyPlan();
+
+// ─── Status controls (sheet) ──────────────────────────────────────────────────
+function renderSheetStatus(idx){
+  const s=DATA[ph][di].stops[idx];
+  const el=document.getElementById("shStatus");
+  if(!el) return;
+  el.innerHTML=
+    '<button class="stbtn done'+(s._status==="done"?" on":"")+'" data-act="done">✓ Realizado</button>'+
+    '<button class="stbtn pend'+(s._status==="pending"?" on":"")+'" data-act="pend">🕓 Remarcar</button>';
+  el.querySelector('[data-act="done"]').onclick=function(){
+    setStatus(s, s._status==="done"?null:"done");
+    renderSheetStatus(idx); renderDay();
+  };
+  el.querySelector('[data-act="pend"]').onclick=function(){ openReschedule(idx); };
+}
+
+// ─── Reschedule modal ─────────────────────────────────────────────────────────
+let _rsIdx=null,_rsSel=null;
+function openReschedule(idx){
+  if(typeof closeStackedModals==="function") closeStackedModals();
+  _rsIdx=idx; _rsSel=null;
+  const cur=DATA[ph][di], s=cur.stops[idx];
+  document.getElementById("rsDesc").textContent='Para qual dia deseja relançar "'+s.name+'"? A rota do dia escolhido será recalculada automaticamente.';
+  const opts=[];
+  for(const p in DATA) DATA[p].forEach(d=>{ if(d!==cur) opts.push({key:p+"|"+d.label,label:d.label,date:d.date,ph:p}); });
+  document.getElementById("rsList").innerHTML=opts.map(o=>
+    '<div class="rs-opt" data-key="'+o.key+'"><div class="rs-check">✓</div><div><div class="rs-opt-label">'+et(o.date)+'</div><div class="rs-opt-date">'+et(o.label)+' · '+et(PHASE_NAME[o.ph])+'</div></div></div>'
+  ).join("");
+  document.getElementById("rsList").querySelectorAll(".rs-opt").forEach(el=>{
+    el.onclick=function(){
+      _rsSel=el.dataset.key;
+      document.querySelectorAll(".rs-opt").forEach(x=>x.classList.toggle("sel",x===el));
+      document.getElementById("rsConfirm").disabled=false;
+    };
+  });
+  document.getElementById("rsConfirm").disabled=true;
+  document.getElementById("rsModal").classList.add("open");
+}
+function closeReschedule(){ document.getElementById("rsModal").classList.remove("open"); }
+function confirmReschedule(){
+  if(_rsSel==null||_rsIdx==null) return;
+  const cur=DATA[ph][di], s=cur.stops[_rsIdx], tgt=dayByKey(_rsSel);
+  if(!tgt) return;
+  setStatus(s,"pending");
+  PLAN.moves.push({id:s._id,to:_rsSel}); savePlan();
+  cur.stops.splice(_rsIdx,1);
+  tgt.day.stops.push(s);
+  rebuildRouteUrl(cur,ph);
+  optimizeDay(tgt.day,tgt.ph);
+  closeReschedule(); closeSheet();
+  setPhase(tgt.ph);
+  setDay(DATA[tgt.ph].indexOf(tgt.day));
+}
+
+// Leaflet interactive map with hotel as route origin
+let _map=null;
+function initMap(stops,phase){
+  const el=document.getElementById("day-map");
+  if(!el) return;
+  if(_map){_map.remove();_map=null;}
+  const pts=stops.filter(s=>s.lat&&s.lng);
+  if(!pts.length||!HOTELS[phase]||HOTELS[phase].lat==null){el.parentElement.style.display="none";return;}
+  el.parentElement.style.display="";
+
+  const hotel=HOTELS[phase]||HOTELS.p2;
+  const isHotelFirst=pts.length>0&&Math.abs(pts[0].lat-hotel.lat)<0.005&&Math.abs(pts[0].lng-hotel.lng)<0.005;
+  const routePts=isHotelFirst?pts:[hotel,...pts];
+
+  _map=L.map(el,{zoomControl:false,attributionControl:false,scrollWheelZoom:false,dragging:true});
+  L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",{maxZoom:19,subdomains:"abc"}).addTo(_map);
+
+  if(!isHotelFirst){
+    const hi=L.divIcon({
+      html:`<div style="background:#fff;width:24px;height:24px;border-radius:50%;border:2px solid #C49A4A;display:flex;align-items:center;justify-content:center;font-size:12px;box-shadow:0 2px 6px rgba(0,0,0,.6)">🏨</div>`,
+      className:"",iconSize:[24,24],iconAnchor:[12,12]
+    });
+    L.marker([hotel.lat,hotel.lng],{icon:hi}).addTo(_map);
+  }
+
+  pts.forEach((s,i)=>{
+    const c=STOP_COLORS[i%STOP_COLORS.length];
+    const icon=L.divIcon({
+      html:`<div style="background:${c};width:26px;height:26px;border-radius:50%;border:2px solid #fff;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#0D0B09;box-shadow:0 2px 6px rgba(0,0,0,.5)">${i+1}</div>`,
+      className:"",iconSize:[26,26],iconAnchor:[13,13]
+    });
+    L.marker([s.lat,s.lng],{icon}).addTo(_map);
+  });
+
+  if(routePts.length>1) L.polyline(routePts.map(s=>[s.lat,s.lng]),{color:"#C49A4A",weight:2.5,opacity:.75,dashArray:"6,4"}).addTo(_map);
+  const bounds=L.latLngBounds(routePts.map(s=>[s.lat,s.lng]));
+  _map.fitBounds(bounds,{padding:[30,30]});
+}
+
+// Time of day section label
+function timeSection(t){
+  if(!t) return null;
+  const m=t.match(/~?(\d+)h/);
+  if(!m) return null;
+  const h=parseInt(m[1]);
+  return h>=18?"Noite":h>=12?"Tarde":"Manhã";
+}
+
+let ph="p1", di=0;
+
+// ─── tap vs scroll detection ────────────────────────────────────────────────
+// touchmove sets _moved=true; touchstart resets it.
+// All click handlers check _moved before acting, so scroll never triggers an action.
+let _moved=false;
+document.addEventListener("touchstart",()=>{_moved=false;},{passive:true});
+document.addEventListener("touchmove",()=>{_moved=true;},{passive:true});
+function onTap(el,fn){
+  el.addEventListener("click",function(e){if(!_moved)fn.call(this,e);});
+}
+
+// ─── build day nav ─────────────────────────────────────────────────────────
+function buildNav(){
+  const days=DATA[ph];
+  document.getElementById("dnav").innerHTML=days.map((d,i)=>
+    `<button class="dbtn${i===di?" a":""}" data-i="${i}">${d.label}</button>`
+  ).join("");
+  document.querySelectorAll(".dbtn").forEach(b=>{
+    onTap(b,function(){setDay(parseInt(this.dataset.i));});
+  });
+  // scroll active into view
+  const active=document.querySelector(".dbtn.a");
+  if(active) active.scrollIntoView({behavior:"smooth",block:"nearest",inline:"center"});
+}
+
+// ─── render day ────────────────────────────────────────────────────────────
+// Selos do Guia Michelin (estrela / estrela verde / recomendado) + destaque do guia de vinícolas.
+const MTAG={star:["t-star","★ MICHELIN"],green:["t-green","🌿 VERDE"],reco:["t-reco","✦ RECOMENDADO"]};
+function tagsHtml(o){
+  const t=[];
+  (o.michelin||[]).forEach(m=>{ const d=MTAG[m]; if(d) t.push(`<span class="mc-tag ${d[0]}">${d[1]}</span>`); });
+  if(o.destaque) t.push('<span class="mc-tag t-dest">★ DESTAQUE</span>');
+  return t.length?`<div class="mc-tags">${t.join("")}</div>`:"";
+}
+
+// Bloco "Almoço/Jantar a definir": slot do escolhido (ou placeholder) + carrossel de opções.
+function mealBlockHtml(day,it){
+  const pick=chosenMeal(ph,day,it.meal);
+  let h=`<div class="meal-block">
+    <div class="meal-slot${pick?" is-set":""}">
+      <div class="ms-ico">${pick?"✓":it.ico}</div>
+      <div class="ms-txt">
+        <div class="ms-t1">${it.titulo} — ${pick?et(pick.name):"a definir"}</div>
+        <div class="ms-t2">${et(it.janela)}${pick?" · "+et(pick.hrs||""):" · escolha entre "+it.opts.length+" opções"}</div>
+      </div>
+      ${pick?`<button class="ms-clear" data-clear="${et(it.meal)}">Trocar</button>`:""}
+    </div>
+    <div class="meal-note">Sugestões próximas — não entram no mapa nem na rota. Toque para ver detalhes e escolher.</div>
+    <div class="meal-car">`;
+  it.opts.forEach((o,i)=>{
+    const ph0=o.photos&&o.photos[0]?o.photos[0]:"";
+    const isC=pick&&pick.name===o.name;
+    h+=`<button class="mc-card${isC?" is-chosen":""}" data-meal="${et(it.meal)}" data-mi="${i}">
+      <div class="mc-img"${ph0?` style="background-image:url('${ph0}')"`:""}>
+        ${o.rating?`<div class="mc-rate">★ ${o.rating}<span>(${Number(o.rcount||0).toLocaleString("pt-BR")})</span></div>`:""}
+        <div class="mc-chk">✓</div>
+        ${tagsHtml(o)}
+      </div>
+      <div class="mc-body">
+        <div class="mc-name">${et(o.name)}</div>
+        <div class="mc-meta">${et(o.hrs||"")}</div>
+        ${o.price?`<div class="mc-price">${et(o.price)}</div>`:""}
+      </div>
+    </button>`;
+  });
+  return h+'</div></div>';
+}
+
+function renderDay(){
+  const day=DATA[ph][di];
+  const cont=document.getElementById("content");
+
+  let navH="";
+  if(day.route) navH=`<div class="navbtns"><a class="nbtn nbtn-gm" href="${eu(day.route)}">${LOGO.gm} Google Maps</a></div>`;
+  const hh=HOTELS[ph];
+  const hotelH=hh?`<div class="hotelline">🏨 <a href="${eu(hh.gmaps||("https://www.google.com/maps/search/?api=1&query="+encodeURIComponent(hh.name+", "+hh.addr)))}">${et(hh.name)}</a> · check-in ${hh.din} · check-out ${hh.dout}</div>`:"";
+  const g=day.guide||{};
+  const lst=a=>"<ul>"+a.map(x=>"<li>"+et(x)+"</li>").join("")+"</ul>";
+  let boxH="";
+  if(g.importante&&g.importante.length) boxH+=`<details class="dsec imp" open><summary>📌 Importante</summary>${lst(g.importante)}</details>`;
+  if(g.locomover&&g.locomover.length) boxH+=`<details class="dsec"><summary>🚆 Como se locomover</summary>${lst(g.locomover)}</details>`;
+  if(g.comer&&g.comer.length) boxH+=`<details class="dsec"><summary>🍜 Onde comer</summary>${lst(g.comer)}</details>`;
+  if(g.dica) boxH+=`<details class="dsec"><summary>💡 Dica</summary><p>${et(g.dica)}</p></details>`;
+  if(boxH) boxH=`<div class="daybox">${boxH}</div>`;
+
+  const stops=day.stops||[];
+  const hasMapPts=stops.some(s=>s.lat&&s.lng);
+  const mapH=`<div class="map-wrap"${hasMapPts?"":" style=\"display:none\""}><div id="day-map"></div></div>`;
+
+  // Stop preview strip (horizontal photo cards below map — like Google Maps)
+  const previewH=stops.length?`<div class="stop-preview">${stops.map((s,i)=>{
+    const ph0=s.photos&&s.photos[0]?s.photos[0]:"";
+    const dot=STOP_COLORS[i%STOP_COLORS.length];
+    const timeShort=s.time?s.time.split("–")[0].trim():"";
+    const isMeal=isMealStop(s);
+    return `<button class="sp-card" data-idx="${i}">
+      <div class="sp-img"${ph0?` style="background-image:url('${ph0}')"`:""}>
+        <div class="sp-num" style="background:${dot}">${i+1}</div>
+        ${timeShort?`<div class="sp-time">${et(timeShort)}</div>`:""}
+        ${isMeal?`<div class="sp-meal-tag">${mealKind(s.time)==="Jantar"?"🌙":"🍽️"} ${mealKind(s.time)}</div>`:""}
+        <div class="sp-label">${et(s.name)}</div>
+      </div>
+    </button>`;
+  }).join("")}</div>`:"";
+
+  // Group stops by time of day
+  const secMap={};const secOrder=[];
+  stops.forEach((s,i)=>{
+    const sec=timeSection(s.time)||"Todo o dia";
+    if(!secMap[sec]){secMap[sec]=[];secOrder.push(sec);}
+    secMap[sec].push({kind:"stop",s,i,t:startMin(s.time)});
+  });
+
+  // Refeições a definir entram na mesma linha do tempo, na posição do seu horário.
+  [["almoço","🍴","Almoço"],["jantar","🍷","Jantar"]].forEach(([meal,ico,titulo])=>{
+    const opts=mealOptions(day,meal);
+    if(!opts.length) return;
+    const janela=opts[0].time||"";
+    const sec=timeSection(janela)||"Todo o dia";
+    if(!secMap[sec]){secMap[sec]=[];secOrder.push(sec);}
+    secMap[sec].push({kind:"meal",meal,ico,titulo,opts,janela,t:startMin(janela)});
+  });
+
+  // Ordena as seções e, dentro delas, os itens por horário de início.
+  const SECRANK={"Manhã":0,"Tarde":1,"Noite":2,"Todo o dia":3};
+  secOrder.sort((a,b)=>(SECRANK[a]??9)-(SECRANK[b]??9));
+  secOrder.forEach(sec=>secMap[sec].sort((a,b)=>a.t-b.t));
+
+  let stopsH='<div class="stops-list">';
+  secOrder.forEach(sec=>{
+    stopsH+=`<div class="sec-hdr">${sec}</div><div class="stop-section">`;
+    const items=secMap[sec];
+    items.forEach((it,idx)=>{
+      if(it.kind==="meal"){ stopsH+=mealBlockHtml(day,it); return; }
+      const s=it.s, i=it.i;
+      const isLast=idx===items.length-1;
+      const bk=BC[s.badge]||"b-cidade";
+      const sk=s.st?SC[s.st]:"";
+      const ph0=s.photos&&s.photos[0]?s.photos[0]:"";
+      const dot=STOP_COLORS[i%STOP_COLORS.length];
+      const isMeal=isMealStop(s);
+      stopsH+=`
+        <div class="stop-row${isLast?" stop-last":""}${s._status==="done"?" is-done":s._status==="pending"?" is-pend":""}">
+          <div class="stop-tl">
+            <div class="stop-dot" style="background:${dot}"></div>
+            <div class="stop-line" style="background:${dot}33"></div>
+          </div>
+          <button class="stop-card" data-idx="${i}">
+            <div class="stop-info">
+              <div class="stop-meta">
+                ${isMeal?mealTagHtml(s):""}
+                ${s.time?`<span class="stop-time">${et(s.time)}</span>`:""}
+                ${s._status?`<span class="st-pill st-${s._status==="done"?"done":"pend"}">${s._status==="done"?"✓ Realizado":"🕓 Remarcar"}</span>`:""}
+                ${s.badge&&!isMeal?`<span class="badge ${bk}">${et(s.badge)}</span>`:""}
+                ${s.st?`<span class="status ${sk}">${et(s.stl)}</span>`:""}
+              </div>
+              <div class="stop-name">${et(s.name)}</div>
+              ${s.hrs?`<div class="stop-hrs">🕐 ${et(s.hrs)}</div>`:""}
+              ${s.desc?`<div class="stop-desc">${et(s.desc)}</div>`:""}
+              <div class="stop-caret">ver detalhes ›</div>
+              <span class="stop-filebadge" data-sk="${buildSk(ph,day.label,s.name)}" style="display:none">📎 arquivos</span>
+            </div>
+            ${ph0?`<img class="stop-thumb" src="${ph0}" alt="" loading="lazy" onload="this.style.opacity=1" onerror="this.remove()" style="opacity:0;transition:opacity .3s">`:""}
+          </button>
+        </div>`;
+    });
+    stopsH+='</div>';
+  });
+  stopsH+='</div>';
+
+  const optional=day.optional||[];
+  const optAttr=optional.map((s,i)=>({s,i})).filter(x=>!isMealStop(x.s));
+  const optMeal=optional.map((s,i)=>({s,i})).filter(x=>isMealStop(x.s));
+  let optH='';
+  if(optional.length){
+    optH+=`<div class="opt-hdr">Opcionais do dia — fora do roteiro original</div><div class="opt-note">Não entram no mapa nem na rota. Toque para ver detalhes.</div>`;
+    if(optAttr.length){
+      optH+='<div class="stop-section">';
+      optAttr.forEach(({s,i},k)=>{
+        const isLast=k===optAttr.length-1;
+        const bk=BC[s.badge]||"b-cidade";
+        const sk=s.st?SC[s.st]:"";
+        const ph0=s.photos&&s.photos[0]?s.photos[0]:"";
+        optH+=`
+          <div class="stop-row is-optional${isLast?" stop-last":""}">
+            <div class="stop-tl">
+              <div class="stop-dot"></div>
+              <div class="stop-line"></div>
+            </div>
+            <button class="stop-card" data-opt-idx="${i}">
+              <div class="stop-info">
+                <div class="stop-meta">
+                  ${s.time?`<span class="stop-time">${et(s.time)}</span>`:""}
+                  ${s.badge?`<span class="badge ${bk}">${et(s.badge)}</span>`:""}
+                  ${s.st?`<span class="status ${sk}">${et(s.stl)}</span>`:""}
+                </div>
+                <div class="stop-name">${et(s.name)}</div>
+                ${s.hrs?`<div class="stop-hrs">🕐 ${et(s.hrs)}</div>`:""}
+                ${s.desc?`<div class="stop-desc">${et(s.desc)}</div>`:""}
+                <div class="stop-caret">ver detalhes ›</div>
+              </div>
+              ${ph0?`<img class="stop-thumb" src="${ph0}" alt="" loading="lazy" onload="this.style.opacity=1" onerror="this.remove()" style="opacity:0;transition:opacity .3s">`:""}
+            </button>
+          </div>`;
+      });
+      optH+='</div>';
+    }
+    if(optMeal.length){
+      const mealLabel=optMeal[0].s.t==="dinner"?"Restaurantes de vinícola (jantar)":"Restaurantes de vinícola (almoço)";
+      optH+=`<div class="opt-note" style="padding-top:2px">${et(mealLabel)} — não entram no mapa nem na rota.</div><div class="meal-car">`;
+      optMeal.forEach(({s,i})=>{
+        const ph0=s.photos&&s.photos[0]?s.photos[0]:"";
+        optH+=`<button class="mc-card" data-opt-idx="${i}">
+          <div class="mc-img"${ph0?` style="background-image:url('${ph0}')"`:""}>
+            ${s.rating?`<div class="mc-rate">★ ${s.rating}<span>(${Number(s.rcount||0).toLocaleString("pt-BR")})</span></div>`:""}
+            ${tagsHtml(s)}
+          </div>
+          <div class="mc-body">
+            <div class="mc-name">${et(s.name)}</div>
+            <div class="mc-meta">${et(s.hrs||"")}</div>
+            ${s.price?`<div class="mc-price">${et(s.price)}</div>`:""}
+          </div>
+        </button>`;
+      });
+      optH+='</div>';
+    }
+  }
+
+  cont.innerHTML=`
+    <div class="dhdr">
+      <div class="d-date">${et(day.date)}</div>
+      <div class="d-title">${et(day.title)}</div>
+      <div class="d-sub">${et(day.sub)}</div>
+      ${navH}${hotelH}
+    </div>
+    ${boxH}
+    ${mapH}
+    ${previewH}
+    ${stopsH}
+    ${optH}`;
+
+  cont.querySelectorAll(".stop-card[data-idx],.sp-card").forEach(btn=>{
+    onTap(btn,function(){openSheet(parseInt(this.dataset.idx));});
+  });
+  cont.querySelectorAll("[data-opt-idx]").forEach(btn=>{
+    onTap(btn,function(){openSheet(parseInt(this.dataset.optIdx),DATA[ph][di].optional||[],"opt");});
+  });
+  cont.querySelectorAll(".mc-card[data-mi]").forEach(btn=>{
+    onTap(btn,function(){
+      const meal=this.dataset.meal;
+      openSheet(parseInt(this.dataset.mi),mealOptions(DATA[ph][di],meal),"meal",meal);
+    });
+  });
+  cont.querySelectorAll(".ms-clear").forEach(btn=>{
+    onTap(btn,function(){ setMeal(ph,DATA[ph][di],this.dataset.clear,null); });
+  });
+
+  document.getElementById("main").scrollTo({top:0,behavior:"instant"});
+  if(window.FILES) FILES.ready.then(()=>{document.querySelectorAll('[data-sk]').forEach(async b=>{const h=await FILES.hasAny(b.dataset.sk);b.style.display=h?'inline-block':'none';});});
+  buildNav();
+  initMap(day.stops||[],ph);
+}
+
+function updatePhotoScroll(photos){
+  const ps=document.getElementById('phScroll');
+  const dc=document.getElementById('phDots');
+  window._lbPhotos=photos;
+  ps.innerHTML=photos.map(function(u,i){
+    return '<div class="ph-slide"><img src="'+u+'" alt="" loading="eager" style="cursor:pointer" onclick="openLightbox(window._lbPhotos,'+i+')" onerror="this.closest(\'.ph-slide\').style.display=\'none\'"></div>';
+  }).join('');
+  if(photos.length>1){
+    dc.innerHTML=photos.map(function(_,j){return '<div class="ph-dot'+(j===0?' a':'')+'"></div>';}).join('');
+    dc.style.display='flex';
+    ps.onscroll=function(){
+      const ci=Math.round(ps.scrollLeft/ps.clientWidth);
+      dc.querySelectorAll('.ph-dot').forEach(function(d,j){d.classList.toggle('a',j===ci);});
+    };
+  } else {
+    dc.style.display='none';
+    ps.onscroll=null;
+  }
+}
+
+// ─── open sheet ────────────────────────────────────────────────────────────
+// kind: undefined = parada do roteiro | "opt" = opcional fora da rota | "meal" = opção de refeição
+function openSheet(idx,arr,kind,meal){
+  if(arr&&!kind) kind="opt";
+  const isOpt=kind==="opt", isMeal=kind==="meal";
+  const s=(arr||DATA[ph][di].stops)[idx];
+  window._mealCtx=isMeal?{meal:meal,name:s.name}:null;
+
+  // photos
+  const photos=s.photos||[];
+  updatePhotoScroll(photos);
+  document.getElementById('phScroll').scrollLeft=0;
+
+  // name
+  document.getElementById("shName").textContent=s.name||"";
+
+  // badges
+  let bdg="";
+  const _isMeal=isMealStop(s);
+  if(_isMeal) bdg+=mealTagHtml(s);
+  if(s.badge&&!_isMeal) bdg+=`<span class="badge ${BC[s.badge]||"b-cidade"}">${et(s.badge)}</span>`;
+  if(isOpt) bdg+=`<span class="badge" style="background:var(--bg3);color:var(--t3)">opcional · fora do roteiro</span>`;
+  if(isMeal) bdg+=`<span class="badge" style="background:var(--bg3);color:var(--t3)">opção de ${et(meal)}</span>`;
+  if(s.st)    bdg+=`<span class="status ${SC[s.st]||""}">${et(s.stl)}</span>`;
+  if(s.rating) bdg+=`<span class="sh-rating">⭐ ${s.rating} <span style="color:var(--t3)">(${Number(s.rcount||0).toLocaleString("pt-BR")})</span></span>`;
+  bdg+=tagsHtml(s).replace('<div class="mc-tags">','').replace(/<\/div>$/,'');
+  if(s.price) bdg+=`<span class="badge" style="background:var(--bg3);color:var(--t2)">${et(s.price)}</span>`;
+  document.getElementById("shBadges").innerHTML=bdg;
+
+  // status controls (realizado / pendente) — not applicable to optional (out-of-route) stops
+  if(isOpt||isMeal){ document.getElementById("shStatus").innerHTML=""; } else { renderSheetStatus(idx); }
+
+  // hours
+  const hSect=document.getElementById("shHrsSect");
+  if(s.hours){
+    hSect.style.display="";
+    document.getElementById("shHrs").innerHTML=
+      Object.entries(s.hours).map(([d,v])=>
+        `<span class="h-day">${et(d)}</span><span class="h-val${v==="FECHADO"?" cl":""}">${et(v)}</span>`
+      ).join("");
+  } else { hSect.style.display="none"; }
+
+  // desc
+  document.getElementById("shDesc").textContent=s.desc||"";
+
+  // action buttons — use eu() for all URLs, NO target=_blank (iOS deep links need direct navigation)
+  const mq=s.q?encodeURIComponent(s.q):"";
+  let actsMain="", actsSpecial="";
+  if(s.gmaps||s.q) actsMain+=`<a class="ab gm" href="${eu(s.gmaps||("https://www.google.com/maps/search/?api=1&query="+mq))}">${LOGO.gm} Ver no Google Maps</a>`;
+  if(s.q)       actsMain+=`<a class="ab ap" href="https://www.google.com/maps/dir/?api=1&amp;travelmode=transit&amp;destination=${mq}">🚆 Como chegar</a>`;
+  if(s.website) actsMain+=`<a class="ab ap" href="${eu(s.website)}">🌐 Site oficial</a>`;
+  if(s.ig)      actsMain+=`<a class="ab ig" href="https://www.instagram.com/${eu(s.ig)}/">${LOGO.ig} Instagram</a>`;
+  if(s.phone)   actsMain+=`<a class="ab ap" href="tel:${eu(s.phone)}">📞 ${et(s.phone)}</a>`;
+
+  if(s.infoImportante){
+    window._infoHtml=s.infoImportante;
+    window._infoName=s.name||"";
+    actsSpecial+=`<button class="ab info" style="flex:1" onclick="openInfoModal()">💰 Informações importantes</button>`;
+  }
+
+  if(isMeal){
+    const cur=chosenMeal(ph,DATA[ph][di],meal);
+    const already=cur&&cur.name===s.name;
+    actsSpecial+=already
+      ? `<button class="ab unpick" style="flex:1" onclick="pickMeal(false)">✕ Remover escolha do ${et(meal)}</button>`
+      : `<button class="ab pick" style="flex:1" onclick="pickMeal(true)">✓ Escolher para o ${et(meal)}</button>`;
+  }
+
+  let acts='';
+  if(actsMain) acts+=`<div class="sh-acts-main">${actsMain}</div>`;
+  if(actsSpecial) acts+=`<div class="sh-acts-special">${actsSpecial}</div>`;
+  document.getElementById("shActs").innerHTML=acts;
+
+  // files section (including pinned reservation files)
+  const _sk=buildSk(ph,DATA[ph][di].label,s.name);
+  document.getElementById('shFiles').innerHTML='';
+  if(window.FILES) FILES.ready.then(()=>renderFilesSection(_sk, s.pinnedFiles||[]));
+
+  // freeze body scroll (iOS)
+  const sy=window.scrollY||document.documentElement.scrollTop;
+  document.body.style.position="fixed";
+  document.body.style.top=`-${sy}px`;
+  document.body.style.width="100%";
+
+  document.getElementById("sheet").classList.add("open");
+  document.getElementById("ov").classList.add("open");
+}
+
+// ─── close sheet ───────────────────────────────────────────────────────────
+function closeSheet(){
+  document.getElementById("sheet").classList.remove("open");
+  document.getElementById("ov").classList.remove("open");
+  const top=parseInt(document.body.style.top||"0")*-1;
+  document.body.style.position="";
+  document.body.style.top="";
+  document.body.style.width="";
+  window.scrollTo(0,top);
+}
+
+// Escolhe (ou remove) o restaurante da refeição a partir da ficha aberta.
+window.pickMeal=function(on){
+  const c=window._mealCtx; if(!c) return;
+  closeSheet();
+  setMeal(ph,DATA[ph][di],c.meal,on?c.name:null);
+};
+
+// close handlers — click only (sheet doesn't scroll, no onTap needed)
+["shClose","shHandle","ov"].forEach(id=>{
+  document.getElementById(id).addEventListener("click",closeSheet);
+});
+
+// reschedule modal wiring
+document.getElementById("rsCancel").addEventListener("click",closeReschedule);
+document.getElementById("rsConfirm").addEventListener("click",confirmReschedule);
+document.getElementById("rsModal").addEventListener("click",function(e){if(e.target.id==="rsModal")closeReschedule();});
+
+// documentos da viagem modal
+const DOCS=[
+  {cat:"🛡️ Seguro Viagem", groups:[
+    {fam:"Família A", files:[
+      {label:"Seguro Viagem — Fulano", url:"assets/docs/seguro-fulano.pdf"}
+    ]}
+  ]}
+];
+function renderDocsModal(){
+  let h="";
+  DOCS.forEach(section=>{
+    h+=`<div class="docs-cat">${et(section.cat)}</div>`;
+    section.groups.forEach(g=>{
+      h+=`<div class="docs-fam">${et(g.fam)}</div>`;
+      g.files.forEach(f=>{
+        h+=`<a class="sh-file-row" href="${eu(f.url)}" data-pdf="${eu(f.url)}" rel="noopener" style="text-decoration:none;margin-bottom:6px">
+          <span class="sh-file-ico">📄</span>
+          <div class="sh-file-info"><div class="sh-file-name" style="white-space:normal">${et(f.label)}</div></div>
+        </a>`;
+      });
+    });
+  });
+  document.getElementById("docsBody").innerHTML=h;
+}
+// these modals share the same visual layer — only one should ever be open at once
+function closeStackedModals(){
+  ["docsModal","splitModal","summaryModal","infoModal","rsModal"].forEach(id=>{
+    const el=document.getElementById(id);
+    if(el) el.classList.remove("open");
+  });
+}
+const GUIDE_HTML="<details class=\"dsec\" open><summary>✅ Checklist pré-viagem<\/summary><ul><li><b>Passaporte com chip<\/b>, válido durante toda a viagem. Brasileiros não precisam de visto para turismo no Japão por até 90 dias (isenção prorrogada até setembro de 2029, vale para passaporte com chip).<\/li><li><b>Visto americano válido.<\/b> As conexões em Dallas e Nova York exigem passar pela imigração dos Estados Unidos, retirar as malas e despachar de novo.<\/li><li><b>Seguro viagem:<\/b> não é exigido para entrar no Japão, mas é essencial (atendimento médico no Japão e nos EUA é caro). Levem a apólice salva no celular.<\/li><li><b>Internet:<\/b> o eSIM é a opção mais prática. Comprem e instalem no Brasil, para ativar quando pousarem.<\/li><li><b>Visit Japan Web<\/b> (site oficial do governo japonês): preencham antes do embarque os dados do passaporte, do voo e do primeiro hotel, e a declaração da alfândega. Vocês recebem dois QR Codes (imigração e alfândega): salvem os dois em print.<\/li><\/ul><\/details><details class=\"dsec\"><summary>🏨 Hotéis<\/summary><ul><li><b>Hotel Henn Tokyo Ginza<\/b><br>2 Chome-2-1 Tsukiji, Chuo City, Tokyo 104-0045<br>Check-in 18/10 · Check-out 22/10<\/li><li><b>Lakeland Hotel Mizunosato (ryokan)<\/b><br>1070 Kodachi, Fujikawaguchiko, Minamitsuru District, Yamanashi<br>Check-in 22/10 · Check-out 23/10<\/li><li><b>Daiwa Roynet Hotel Kyoto Ekimae Premier<\/b><br>707-2 Higashishiokojicho, Karasuma-dori, Shimogyo-ku, Kyoto<br>Check-in 23/10 · Check-out 27/10<\/li><li><b>Hotel Vista<\/b><br>6-15 Teppocho, Naka Ward, Hiroshima<br>Check-in 27/10 · Check-out 29/10<\/li><li><b>Travelodge Honmachi Osaka<\/b><br>3 Chome-2-6 Azuchimachi, Chuo Ward, Osaka<br>Check-in 29/10 · Check-out 02/11<\/li><li><b>Daiwa Roynet Hotel Tokyo Kyobashi Premier<\/b><br>2 Chome-8-20 Kyobashi, Chuo City, Tokyo<br>Check-in 02/11 · Check-out 05/11<\/li><\/ul><\/details><details class=\"dsec\"><summary>✈️ Voos<\/summary><ul><li><b>Ida:<\/b> São Paulo (GRU) → Dallas (DFW), American: embarque 16/10 às 22h, chegada 17/10 às 6h20. Dallas (DFW) → Tóquio Haneda (HND), American: embarque 17/10 às 10h30, chegada 18/10 às 14h20.<\/li><li><b>Volta:<\/b> Tóquio (HND) → Nova York (JFK), Japan Airlines: embarque 05/11 às 11h05, chegada 05/11 às 9h50. Nova York (JFK) → São Paulo (GRU), American: embarque 05/11 às 18h35, chegada 06/11 às 6h05. São Paulo (GRU) → Recife (REC), Azul: embarque 06/11 às 13h05, chegada às 16h10.<\/li><\/ul><\/details><details class=\"dsec\"><summary>🛬 Chegada e imigração<\/summary><p>Ao chegar, não é mais necessário apresentar comprovantes como antigamente. No avião, os comissários costumam distribuir dois formulários (imigração e alfândega), mas é mais prático preencher tudo online antes da viagem no Visit Japan Web.<\/p><ul><li>Os atendentes encaminham vocês para filas diferentes: quem tem formulário em papel e quem já fez o cadastro online (QR Codes).<\/li><li><b>Inspeção inicial:<\/b> pode haver uma rápida verificação de saúde, e os agentes orientam se necessário.<\/li><li><b>Controle de imigração:<\/b> apresentem o passaporte e o QR Code do Visit Japan Web. Após a validação é concedida a Landing Permission.<\/li><li><b>Bagagens:<\/b> sigam para a área de Baggage Claim para retirar as malas despachadas.<\/li><li><b>Alfândega:<\/b> normalmente basta apresentar o QR Code da declaração; em alguns casos os agentes podem pedir a abertura da mala.<\/li><li>Por fim, sigam para a área de desembarque. Tenham os documentos de entrada e o endereço do hotel à mão.<\/li><\/ul><\/details><details class=\"dsec\"><summary>💴 Dinheiro e Tax Free<\/summary><p>A moeda é o iene (¥). Como referência, <b>¥1.000 equivalem a cerca de R$ 31<\/b>.<\/p><ul><li>Cartões são aceitos na maioria das lojas, hotéis, estações e restaurantes. Wise e Nomad funcionam bem.<\/li><li>Restaurantes pequenos, barraquinhas de mercado e templos muitas vezes só aceitam dinheiro. Comecem com uns ¥30.000 em espécie e reponham conforme o uso.<\/li><li><b>Onde sacar:<\/b> nos caixas da 7-Eleven (Seven Bank) e dos correios (Japan Post), que aceitam cartões estrangeiros. Há 7-Eleven em praticamente toda esquina!<\/li><li><b>Tax Free, atenção à mudança:<\/b> até 31/10, em lojas Tax Free, compras acima de ¥5.000 por loja, no mesmo dia, têm o imposto de 10% descontado direto no caixa (apresentem o passaporte físico). A partir de 01/11, vocês pagam o preço cheio e pedem o reembolso na alfândega, no aeroporto, antes do check-in do voo de volta. No sistema novo, os produtos precisam estar intactos e sem uso; se faltar algum item de uma nota, a isenção cai para a nota inteira. Por isso, vale concentrar as compras maiores até 31/10.<\/li><li>Dinheiro e cartões devem ser entregues com as duas mãos ou colocados na bandejinha do caixa.<\/li><\/ul><\/details><details class=\"dsec\"><summary>🚆 Transporte público<\/summary><p>Os apps Google Maps e Japan Travel (Navitime) ajudam muito a planejar rotas e horários.<\/p><ul><li><b>Metrô<\/b> (rápido e muito usado em Tóquio e Osaka), <b>trens urbanos<\/b> (JR e privados), <b>ônibus<\/b> (muito usados em Kyoto, principalmente para chegar aos templos) e <b>táxis<\/b> (seguros e confortáveis, mas mais caros).<\/li><li><b>Suica / Pasmo / Icoca:<\/b> cartões recarregáveis que funcionam em metrô, trens, ônibus e lojas de conveniência. No iPhone, o Suica pode ser adicionado direto na carteira; basta encostar o celular na catraca ao entrar e ao sair. Sempre passem o cartão ao entrar e sair das estações para validar o trajeto.<\/li><li><b>Google Maps:<\/b> mostra linha, plataforma, horário e até a saída certa da estação. Estações grandes têm dezenas de saídas, então confiram sempre o número (exit).<\/li><li><b>Shinkansen (trem-bala):<\/b> os trechos de vocês já estão comprados pelo SmartEX. O Shinkansen tem catracas próprias, sinalizadas em azul, dentro das estações. O bilhete indica o número do carro e do assento; na plataforma, o chão mostra onde cada carro para. Cheguem 15 a 20 minutos antes, porque o trem para por pouco tempo.<\/li><li><b>Etiqueta:<\/b> silêncio no trem e nada de ligações; mochila na frente do corpo quando estiver cheio; esperem nas marcações do chão e deixem as pessoas saírem primeiro; na escada rolante, fiquem parados à esquerda em Tóquio e à direita em Osaka.<\/li><li><b>Dica:<\/b> no metrô não se come. No Shinkansen pode, e o ekiben (a marmita de trem) faz parte da experiência!<\/li><\/ul><\/details><details class=\"dsec\"><summary>📱 Aplicativos essenciais<\/summary><ul><li>Google Maps: rotas, horários e plataformas<\/li><li>Google Tradutor: use a câmera para ler cardápios<\/li><li>Carteira do iPhone (Suica): transporte e pagamentos<\/li><li>SmartEX: bilhetes do Shinkansen<\/li><li>App oficial da Universal Studios Japan: obrigatório no parque<\/li><li>Klook: ingressos e atrações<\/li><li>GO: para chamar táxi<\/li><\/ul><p>Baixem tudo, criem as contas e testem antes de embarcar. Levem também uma bateria portátil, porque o celular será usado o dia inteiro!<\/p><\/details><details class=\"dsec\"><summary>🍂 Clima no Japão<\/summary><p><b>Outono japonês: dias agradáveis, noites fresquinhas e paisagens lindas!<\/b><\/p><ul><li><b>Temperaturas:<\/b> em média, 10°C a 23°C nas cidades. Na região do Monte Fuji, pode fazer menos de 5°C à noite.<\/li><li><b>Chuvas:<\/b> podem ocorrer chuvas leves ou passageiras, embora outubro e novembro sejam geralmente menos chuvosos que o verão.<\/li><li><b>Dicas:<\/b> levem roupas em camadas, casaco de meia-estação e tênis confortáveis. Para o Monte Fuji e os passeios noturnos, incluam um casaco mais quente. Um guarda-chuva compacto também é útil.<\/li><\/ul><\/details><details class=\"dsec\"><summary>🙇 Etiqueta no Japão<\/summary><ul><li>Tirem os sapatos ao entrar em casas, alguns restaurantes e templos.<\/li><li>Evitem falar alto em transporte público.<\/li><li>Não comam andando na rua (prefiram parar para comer).<\/li><li>Formem filas sempre que necessário.<\/li><li>Dinheiro e cartões devem ser entregues com as duas mãos ou colocados na bandejinha do caixa.<\/li><\/ul><\/details><details class=\"dsec\"><summary>ℹ️ Informações úteis<\/summary><ul><li><b>Vacinas:<\/b> não é exigido nenhum tipo de vacina para entrada no país.<\/li><li><b>Tomadas:<\/b> voltagem de 100V e tomadas tipo A (pino achatado), semelhantes às dos Estados Unidos.<\/li><li><b>Segurança:<\/b> o Japão é um país extremamente seguro, com baixos índices de criminalidade.<\/li><li><b>Água:<\/b> a água da torneira é potável.<\/li><li><b>Banheiros:<\/b> os famosos banheiros japoneses têm várias funções no assento (jato de água, aquecimento etc.).<\/li><li><b>Bagagem:<\/b> pesem as malas antes do voo de volta (lojas como a Don Quijote vendem balança de mão). Facas japonesas e líquidos vão sempre na mala despachada.<\/li><\/ul><\/details><details class=\"dsec\"><summary>🍜 Culinária local<\/summary><p>Muitos restaurantes exibem réplicas dos pratos nas vitrines: basta apontar o prato ou mostrar uma foto ao atendente. Em alguns lugares o pedido é feito em máquinas na entrada (escolhe o prato, paga e entrega o ticket ao atendente). Nos mercados e lojas de conveniência há refeições prontas chamadas bento. Há também máquinas automáticas espalhadas pelas cidades, que vendem desde bebidas e café até pequenos lanches.<\/p><p><b>Comidas para provar em Tóquio:<\/b><\/p><ul><li>Ramen: sopa de macarrão com caldo rico e aromático.<\/li><li>Sushi e sashimi: peixes extremamente frescos.<\/li><li>Tempura: frutos do mar e vegetais empanados com massa leve e crocante.<\/li><li>Tonkatsu: carne de porco empanada e frita.<\/li><li>Gyoza: pequenos dumplings grelhados ou cozidos.<\/li><li>Okonomiyaki: espécie de panqueca japonesa com repolho, carne ou frutos do mar.<\/li><li>Matcha e sobremesas japonesas: doces de chá verde, mochis e outras sobremesas tradicionais.<\/li><\/ul><\/details><details class=\"dsec\"><summary>🍣 Restaurantes sugeridos — Tóquio<\/summary><p><b>Sugestões<\/b><\/p><ul><li><a href=\"https://www.sushinomidori.co.jp/\">Sushi no Midori<\/a> — sushi tradicional<\/li><li><a href=\"https://en.ichiran.com/shop/area-tokyo.html\">Ichiran<\/a> — ramen tonkotsu<\/li><li><a href=\"https://tabelog.com/en/tokyo/A1313/A131301/13002302/\">Sushi Zanmai<\/a> — sushi casual<\/li><li><a href=\"https://en.shinjuku-omoide.com/\">Omoide Yokocho<\/a> — vielas de izakayas em Shinjuku<\/li><li><a href=\"https://www.tunahachi.co.jp/en/\">Tempura Tsunahachi<\/a><\/li><li><a href=\"https://kuuraku-ginza.jp/\">Yakitori Kufuraku<\/a><\/li><li><a href=\"https://www.ten-yokota.com/\">Ten Yokota Asue<\/a> — tempurá<\/li><li>Daikokuya — tendon clássico de Asakusa<\/li><li><a href=\"https://hikinikutocome.com/\">Hikiniku to Come<\/a> — hambúrguer japonês<\/li><li><a href=\"https://mai-sen.com/\">Tonkatsu Maisen<\/a> — porco empanado<\/li><li>Gyukatsu Motomura — bife empanado<\/li><li><a href=\"https://www.marion.co.jp/store/tokyo/\">Marion Crepes<\/a><\/li><li><a href=\"https://www.afuriramen.com/\">Afuri<\/a> — ramen com yuzu<\/li><li><a href=\"https://www.instagram.com/udon_shin.official/\">Udon Shin<\/a><\/li><li><a href=\"https://www.tsukiji.or.jp/english/\">Mercado Externo de Tsukiji<\/a><\/li><\/ul><p><b>Premiados e clássicos<\/b><\/p><ul><li><a href=\"https://www.instagram.com/konjikihototogisu/\">Konjiki Hototogisu<\/a><\/li><li><a href=\"https://www.instagram.com/nakiryusg/\">Nakiryu<\/a><\/li><li><a href=\"https://tabelog.com/en/tokyo/A1312/A131201/13019126/\">Tonkatsu Hasegawa<\/a><\/li><li><a href=\"https://www.tsuta.com/\">Tsuta<\/a><\/li><li><a href=\"https://www.instagram.com/kagari_honten/\">Ginza Kagari<\/a> — ramen cremoso de frango<\/li><li><a href=\"https://ushigoro.com/shop/ginza/\">Yakiniku Ushigoro Ginza<\/a> — wagyu japonês<\/li><\/ul><p><b>Omakase em Tóquio<\/b><\/p><ul><li><a href=\"https://www.tablecheck.com/en/sushi-han\">Sushi Han<\/a><\/li><li><a href=\"https://sushitokyo-ten.com/\">Sushi Tokyo Ten<\/a><\/li><li><a href=\"https://en.masazushi.co.jp/shop-ginza/\">Otaru Masazushi Ginza<\/a><\/li><li><a href=\"https://tabelog.com/en/tokyo/A1303/A130302/13207465/\">Ebisu Kicho (Ebisu)<\/a><\/li><li><a href=\"https://ginza-kusumi.jp/en/\">Sushi Kusumi<\/a><\/li><li><a href=\"https://kyubey.jp/\">Ginza Kyubey<\/a><\/li><li><a href=\"https://www.sushiaoki.jp/en/oshinagaki.html\">Ginza Sushi Aoki<\/a><\/li><\/ul><\/details><details class=\"dsec\"><summary>🍵 Restaurantes sugeridos — Kyoto<\/summary><p><b>Experiência com reserva<\/b><\/p><ul><li><a href=\"http://www.karyo-kyoto.jp/gion/\">Gion Karyo<\/a><\/li><li><a href=\"https://kyoto-mishimatei.com/\">Mishima-tei (Teramachi)<\/a> — sukiyaki de wagyu<\/li><li><a href=\"https://www.mouriya.co.jp/\">Mouriya Gion<\/a><\/li><li><a href=\"https://www.sukiyaki-iroha.com/\">Sukiyaki Iroha<\/a><\/li><li><a href=\"https://www.shoraian.jp/\">Shoraian<\/a> — tofu japonês, em Arashiyama<\/li><\/ul><p><b>Sugestões<\/b><\/p><ul><li><a href=\"https://menyainoichi.net/\">Menya Inoichi<\/a> — ramen<\/li><li><a href=\"https://www.katsukura.jp/shops/sanjo/\">Katsukura<\/a> — tonkatsu de Kyoto<\/li><li><a href=\"https://www.kyoto-station-building.co.jp/ramen_koji/\">Kyoto Ramen Koji<\/a><\/li><li><a href=\"https://www.tofuokutan.info/\">Okutan Kiyomizu<\/a><\/li><li><a href=\"https://www.izuu.jp/english/\">Izuu<\/a><\/li><li><a href=\"https://tabelog.com/en/kyoto/A2601/A260101/26000791/\">Shinpuku Saikan Honten<\/a><\/li><li><a href=\"https://www.honke-daiichiasahi.com/\">Honke Daiichi Asahi<\/a><\/li><li><a href=\"https://kyoto-sagano.jp/\">Yudofu Sagano<\/a><\/li><\/ul><p><b>Doces e cafés<\/b><\/p><ul><li><a href=\"https://www.kagizen.co.jp/\">Kagizen Yoshifusa<\/a><\/li><li><a href=\"https://gion-tokuya.jp/\">Gion Tokuya<\/a><\/li><li><a href=\"https://www.giontsujiri.co.jp/en/\">Tsujiri Gion<\/a><\/li><li><a href=\"https://arabica.com/en/location/arabica-kyoto-arashiyama/\">% Arabica Arashiyama<\/a><\/li><\/ul><\/details><details class=\"dsec\"><summary>🐙 Restaurantes sugeridos — Osaka<\/summary><p><b>Experiência com reserva<\/b><\/p><ul><li><a href=\"https://matsusaka-projects.com/english/\">Matsusaka Gyu Yakiniku M<\/a><\/li><li><a href=\"https://www.instagram.com/sushi.nobutaka/\">Sushi Nobutaka<\/a><\/li><li><a href=\"https://www.mouriya.co.jp/\">Mouriya Honten (Kobe)<\/a><\/li><li><a href=\"https://tabelog.com/en/osaka/A2701/A270202/27084853/\">Hozenji Sushidokoro Nakatani<\/a><\/li><\/ul><p><b>Premiados<\/b><\/p><ul><li>Mizuno — okonomiyaki desde 1945<\/li><li><a href=\"https://2951.jp/en/\">Fukutaro<\/a> — negiyaki<\/li><li><a href=\"https://tabelog.com/en/osaka/A2701/A270101/27000322/\">Kiji<\/a> — okonomiyaki em Umeda<\/li><\/ul><p><b>Sugestões<\/b><\/p><ul><li>Kushikatsu Daruma — espetinhos empanados<\/li><li><a href=\"https://takoyaki-wanaka.com/en/index.html\">Wanaka<\/a> — takoyaki<\/li><li><a href=\"https://tabelog.com/en/osaka/A2701/A270202/27001289/\">Dotonbori Imai<\/a> — udon clássico<\/li><li>Harukoma — sushi popular (só dinheiro)<\/li><li><a href=\"https://www.hokkyokusei.online/shinsaibashi\">Hokkyokusei<\/a> — omurice<\/li><li><a href=\"https://tabelog.com/en/osaka/A2701/A270202/27087004/\">Gyukatsu Motomura Namba<\/a> — bife empanado<\/li><li><a href=\"https://www.endo-sushi.com/\">Endo Sushi<\/a> — sushi de mercado<\/li><li><a href=\"https://kuromon.com/en/\">Mercado Kuromon<\/a> — comida de rua<\/li><li><a href=\"https://kinryuramen.com/\">Kinryu Ramen<\/a> — ramen do dragão<\/li><li><a href=\"https://douraku.co.jp/en/\">Kani Doraku<\/a> — caranguejo, o do letreiro gigante<\/li><\/ul><p><b>Doces e cafés<\/b><\/p><ul><li><a href=\"https://www.551horai.co.jp/\">551 Horai<\/a> — pãozinho de porco no vapor<\/li><li><a href=\"https://www.rikuro.co.jp/en/\">Rikuro Ojisan<\/a> — cheesecake fofinho<\/li><\/ul><\/details>";
+document.getElementById("docsBtn").addEventListener("click",function(){
+  closeStackedModals();
+  document.getElementById("infoTitle").textContent="📖 Guia da viagem";
+  document.getElementById("infoBody").innerHTML=GUIDE_HTML;
+  document.getElementById("infoModal").classList.add("open");
+});
+document.getElementById("docsBody").addEventListener("click",function(e){
+  const a=e.target.closest('a[data-pdf]');
+  if(!a) return;
+  e.preventDefault();
+  openPdfViewer(a.dataset.pdf);
+});
+if(window.pdfjsLib){
+  pdfjsLib.GlobalWorkerOptions.workerSrc="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
+}
+let _pdfRenderToken=0;
+let _currentPdfUrl="";
+document.getElementById("pdfViewerOpen").addEventListener("click",function(){
+  if(_currentPdfUrl) window.open(_currentPdfUrl,'_blank','noopener');
+});
+async function openPdfViewer(url){
+  _currentPdfUrl=url;
+  document.getElementById("pdfViewer").classList.add("open");
+  const pagesEl=document.getElementById("pdfViewerPages");
+  pagesEl.innerHTML='<div class="pdfv-loading">Carregando PDF…</div>';
+  const myToken=++_pdfRenderToken;
+  if(!window.pdfjsLib){
+    window.open(url,'_blank');
+    closePdfViewer();
+    return;
+  }
+  try{
+    const pdf=await pdfjsLib.getDocument(url).promise;
+    if(myToken!==_pdfRenderToken) return;
+    pagesEl.innerHTML='';
+    const maxW=(pagesEl.clientWidth||800)-20;
+    for(let i=1;i<=pdf.numPages;i++){
+      const page=await pdf.getPage(i);
+      if(myToken!==_pdfRenderToken) return;
+      const baseVp=page.getViewport({scale:1});
+      const cssScale=Math.min(2, maxW/baseVp.width);
+      const outputScale=Math.max(window.devicePixelRatio||1, 2);
+      const vp=page.getViewport({scale:cssScale*outputScale});
+      const canvas=document.createElement('canvas');
+      canvas.width=vp.width; canvas.height=vp.height;
+      canvas.style.width=Math.floor(vp.width/outputScale)+"px";
+      canvas.style.height=Math.floor(vp.height/outputScale)+"px";
+      pagesEl.appendChild(canvas);
+      await page.render({canvasContext:canvas.getContext('2d'),viewport:vp}).promise;
+      if(myToken!==_pdfRenderToken) return;
+    }
+  }catch(err){
+    if(myToken!==_pdfRenderToken) return;
+    pagesEl.innerHTML='<div class="pdfv-loading">Não foi possível carregar o PDF aqui. Toque em ⤢ para abrir em nova aba.</div>';
+  }
+}
+function closePdfViewer(){
+  _pdfRenderToken++;
+  document.getElementById("pdfViewer").classList.remove("open");
+  document.getElementById("pdfViewerPages").innerHTML='';
+}
+document.getElementById("pdfViewerClose").addEventListener("click",closePdfViewer);
+function closeDocsModal(){ document.getElementById("docsModal").classList.remove("open"); }
+document.getElementById("docsClose").addEventListener("click",closeDocsModal);
+document.getElementById("docsModal").addEventListener("click",function(e){if(e.target.id==="docsModal")closeDocsModal();});
+
+// ─── Dividir a conta (splitwise) ────────────────────────────────────────────
+const CUR="JPY"; // ex.: ARS, EUR, USD (moeda em que a conta é dividida)
+const FOREIGN=["USD","BRL","EUR"].filter(c=>c!==CUR); // moedas estrangeiras com câmbio ajustável
+const SPLIT_PEOPLE=[["a","Pessoa A"],["b","Pessoa B"]]; // chave curta + nome; ajustar defaultSplit()
+let _splitSk="";
+function defaultSplit(){
+  const people={},drinkers={},paid={};
+  SPLIT_PEOPLE.forEach(([k])=>{people[k]=true;drinkers[k]=false;paid[k]={amount:0,cur:CUR};});
+  return {title:"",people,total:0,hadAlcohol:false,alcoholTotal:0,drinkers,paid};
+}
+function getSplit(sk){
+  if(!PLAN.splits[sk]) PLAN.splits[sk]=defaultSplit();
+  return PLAN.splits[sk];
+}
+function toARS(amount,cur){
+  amount=Number(amount)||0;
+  if(cur===CUR) return amount;
+  return amount*(Number(PLAN.fx[String(cur).toLowerCase()])||0);
+}
+function fmtARS(n){ return CUR+" "+Math.round(n).toLocaleString("ja-JP"); }
+function splitFairShares(sp){
+  const parts=SPLIT_PEOPLE.filter(([k])=>sp.people[k]).map(([k])=>k);
+  const n=parts.length;
+  const alcohol=sp.hadAlcohol?(Number(sp.alcoholTotal)||0):0;
+  const foodTotal=Math.max((Number(sp.total)||0)-alcohol,0);
+  const foodPer=n?foodTotal/n:0;
+  const drinkersList=parts.filter(k=>sp.drinkers[k]);
+  const alcPer=(sp.hadAlcohol&&drinkersList.length)?alcohol/drinkersList.length:0;
+  const fair={};
+  SPLIT_PEOPLE.forEach(([k])=>{ fair[k]=parts.includes(k)?(foodPer+(sp.drinkers[k]?alcPer:0)):0; });
+  return {parts,fair};
+}
+window.openSplitModal=function(){
+  closeStackedModals();
+  _splitSk=window._splitSk;
+  const sp=getSplit(_splitSk);
+  if(!sp.title) sp.title=window._splitTitle||"";
+  document.getElementById("splitTitle").textContent="🧮 Dividir a conta — "+(window._splitTitle||sp.title||"");
+  renderSplitBody();
+  document.getElementById("splitModal").classList.add("open");
+};
+function closeSplitModal(){ document.getElementById("splitModal").classList.remove("open"); }
+document.getElementById("splitClose").addEventListener("click",closeSplitModal);
+document.getElementById("splitModal").addEventListener("click",function(e){if(e.target.id==="splitModal")closeSplitModal();});
+
+function renderSplitBody(){
+  const sp=getSplit(_splitSk);
+  const {parts}=splitFairShares(sp);
+  let h="";
+
+  h+=`<div class="split-sect-t">Quem participou desta refeição?</div><div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:4px">`;
+  SPLIT_PEOPLE.forEach(([k,label])=>{
+    h+=`<button type="button" class="split-chip ${sp.people[k]?'on':''}" data-act="toggle-person" data-k="${k}">${label}</button>`;
+  });
+  h+=`</div>`;
+
+  h+=`<div class="split-sect-t">Valor total da conta</div>`;
+  h+=`<div class="split-row"><div class="split-label">${CUR}</div><input type="number" inputmode="decimal" class="split-input" value="${sp.total||''}" data-act="total"></div>`;
+
+  h+=`<div class="split-sect-t">Teve bebida alcoólica?</div><div style="display:flex;gap:6px;margin-bottom:4px">
+    <button type="button" class="split-chip ${sp.hadAlcohol?'on':''}" data-act="alcohol" data-v="1">Sim</button>
+    <button type="button" class="split-chip ${!sp.hadAlcohol?'on':''}" data-act="alcohol" data-v="0">Não</button>
+  </div>`;
+
+  if(sp.hadAlcohol){
+    h+=`<div class="split-row" style="margin-top:8px"><div class="split-label">Valor da bebida (${CUR})</div><input type="number" inputmode="decimal" class="split-input" value="${sp.alcoholTotal||''}" data-act="alctotal"></div>`;
+    h+=`<div class="split-sect-t">Quem bebeu?</div><div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:4px">`;
+    if(parts.length){
+      parts.forEach(k=>{
+        const label=SPLIT_PEOPLE.find(x=>x[0]===k)[1];
+        h+=`<button type="button" class="split-chip ${sp.drinkers[k]?'on':''}" data-act="toggle-drinker" data-k="${k}">${label}</button>`;
+      });
+    } else {
+      h+=`<span style="font-size:12px;color:var(--t3)">Selecione quem participou primeiro</span>`;
+    }
+    h+=`</div>`;
+  }
+
+  h+=`<div id="splitFairBody"></div>`;
+
+  h+=`<div class="split-sect-t">Quanto cada um pagou de fato?</div>`;
+  parts.forEach(k=>{
+    const label=SPLIT_PEOPLE.find(x=>x[0]===k)[1];
+    const pd=sp.paid[k]||{amount:0,cur:CUR};
+    h+=`<div class="split-row">
+      <div class="split-label">${label}</div>
+      <input type="number" inputmode="decimal" class="split-input" style="width:84px" value="${pd.amount||''}" data-act="paid-amount" data-k="${k}">
+      <select class="split-select" data-act="paid-cur" data-k="${k}">
+        ${[CUR,...FOREIGN].map(c=>`<option value="${c}" ${pd.cur===c?'selected':''}>${c}</option>`).join("")}
+      </select>
+    </div>`;
+  });
+  if(!parts.length) h+=`<div style="font-size:12px;color:var(--t3);margin-bottom:8px">Selecione quem participou primeiro</div>`;
+
+  h+=`<div class="split-sect-t">Câmbio (ajustável)</div>
+    ${FOREIGN.map(c=>`<div class="split-row"><div class="split-label">1 ${c} = ___ ${CUR}</div><input type="number" inputmode="decimal" class="split-input" value="${PLAN.fx[c.toLowerCase()]||''}" data-act="fx" data-cur="${c.toLowerCase()}"></div>`).join("")}`;
+
+  h+=`<div id="splitDiffBody"></div>`;
+
+  document.getElementById("splitBody").innerHTML=h;
+  updateSplitCalc();
+}
+function updateSplitCalc(){
+  const sp=getSplit(_splitSk);
+  const {parts,fair}=splitFairShares(sp);
+
+  let fh=`<div class="split-sect-t">Valor justo por pessoa</div>`;
+  if(!parts.length){
+    fh+=`<div class="split-result" style="justify-content:center;color:var(--t3)">Selecione quem participou</div>`;
+  } else {
+    parts.forEach(k=>{
+      const label=SPLIT_PEOPLE.find(x=>x[0]===k)[1];
+      fh+=`<div class="split-result"><span>${label}${sp.drinkers[k]?' 🍷':''}</span><b>${fmtARS(fair[k])}</b></div>`;
+    });
+  }
+  document.getElementById("splitFairBody").innerHTML=fh;
+
+  let dh="";
+  if(parts.length){
+    dh+=`<div class="split-sect-t">Diferença (pago − justo)</div>`;
+    parts.forEach(k=>{
+      const label=SPLIT_PEOPLE.find(x=>x[0]===k)[1];
+      const pd=sp.paid[k]||{amount:0,cur:CUR};
+      const paidArs=toARS(pd.amount,pd.cur);
+      const diff=paidArs-fair[k];
+      const cls=diff>0.5?'split-diff-pos':diff<-0.5?'split-diff-neg':'';
+      const sign=diff>0.5?'+':'';
+      dh+=`<div class="split-result"><span>${label}</span><b class="${cls}">${sign}${fmtARS(diff)}</b></div>`;
+    });
+  }
+  document.getElementById("splitDiffBody").innerHTML=dh;
+}
+document.getElementById("splitBody").addEventListener("click",function(e){
+  const btn=e.target.closest("[data-act]");
+  if(!btn) return;
+  const sp=getSplit(_splitSk);
+  const act=btn.dataset.act;
+  if(act==="toggle-person"){
+    const k=btn.dataset.k; sp.people[k]=!sp.people[k];
+    if(!sp.people[k]) sp.drinkers[k]=false;
+  } else if(act==="alcohol"){
+    sp.hadAlcohol=btn.dataset.v==="1";
+    if(!sp.hadAlcohol){ sp.alcoholTotal=0; SPLIT_PEOPLE.forEach(([k])=>sp.drinkers[k]=false); }
+  } else if(act==="toggle-drinker"){
+    const k=btn.dataset.k; sp.drinkers[k]=!sp.drinkers[k];
+  } else return;
+  savePlan();
+  renderSplitBody();
+});
+document.getElementById("splitBody").addEventListener("input",function(e){
+  const el=e.target.closest("[data-act]");
+  if(!el) return;
+  const sp=getSplit(_splitSk);
+  const act=el.dataset.act;
+  if(act==="total"){ sp.total=Number(el.value)||0; }
+  else if(act==="alctotal"){ sp.alcoholTotal=Number(el.value)||0; }
+  else if(act==="paid-amount"){ const k=el.dataset.k; sp.paid[k]=sp.paid[k]||{amount:0,cur:CUR}; sp.paid[k].amount=Number(el.value)||0; }
+  else if(act==="paid-cur"){ const k=el.dataset.k; sp.paid[k]=sp.paid[k]||{amount:0,cur:CUR}; sp.paid[k].cur=el.value; }
+  else if(act==="fx"){ PLAN.fx[el.dataset.cur]=Number(el.value)||0; }
+  else return;
+  savePlan();
+  updateSplitCalc();
+});
+document.getElementById("splitBody").addEventListener("change",function(e){
+  const el=e.target.closest('select[data-act="paid-cur"]');
+  if(!el) return;
+  const sp=getSplit(_splitSk);
+  const k=el.dataset.k;
+  sp.paid[k]=sp.paid[k]||{amount:0,cur:CUR};
+  sp.paid[k].cur=el.value;
+  savePlan();
+  updateSplitCalc();
+});
+
+// ─── Resumo da Viagem ────────────────────────────────────────────────────
+function closeSummaryModal(){ document.getElementById("summaryModal").classList.remove("open"); }
+document.getElementById("summaryClose").addEventListener("click",closeSummaryModal);
+document.getElementById("summaryModal").addEventListener("click",function(e){if(e.target.id==="summaryModal")closeSummaryModal();});
+function renderSummary(){
+  const totals={}; SPLIT_PEOPLE.forEach(([k])=>totals[k]={fair:0,paid:0});
+  const entries=[];
+  Object.keys(PLAN.splits).forEach(sk=>{
+    const sp=PLAN.splits[sk];
+    if(!sp||!sp.total) return;
+    const {parts,fair}=splitFairShares(sp);
+    parts.forEach(k=>{
+      const pd=sp.paid[k]||{amount:0,cur:CUR};
+      totals[k].fair+=fair[k];
+      totals[k].paid+=toARS(pd.amount,pd.cur);
+    });
+    entries.push({title:sp.title||sk,total:sp.total});
+  });
+
+  let h="";
+  if(!entries.length){
+    h=`<div class="split-result" style="justify-content:center;color:var(--t3)">Nenhuma refeição com divisão registrada ainda. Abra "🧮 Dividir a conta" em algum almoço ou jantar primeiro.</div>`;
+    document.getElementById("summaryBody").innerHTML=h;
+    return;
+  }
+
+  h+=`<div class="split-sect-t">Refeições registradas (${entries.length})</div>`;
+  entries.forEach(e=>{ h+=`<div class="split-result"><span>${et(e.title)}</span><b>${fmtARS(e.total)}</b></div>`; });
+
+  const net={}; SPLIT_PEOPLE.forEach(([k])=>net[k]=totals[k].paid-totals[k].fair);
+  h+=`<div class="split-sect-t">Saldo de cada um (pago − justo)</div>`;
+  SPLIT_PEOPLE.forEach(([k,label])=>{
+    const diff=net[k];
+    const cls=diff>0.5?'split-diff-pos':diff<-0.5?'split-diff-neg':'';
+    const sign=diff>0.5?'+':'';
+    h+=`<div class="split-result"><span>${label}</span><b class="${cls}">${sign}${fmtARS(diff)}</b></div>`;
+  });
+
+  const creditors=SPLIT_PEOPLE.filter(([k])=>net[k]>0.5).map(([k,label])=>({label,amt:net[k]})).sort((a,b)=>b.amt-a.amt);
+  const debtors=SPLIT_PEOPLE.filter(([k])=>net[k]<-0.5).map(([k,label])=>({label,amt:-net[k]})).sort((a,b)=>b.amt-a.amt);
+  const txs=[];
+  let ci=0, di_=0;
+  while(ci<creditors.length && di_<debtors.length){
+    const c=creditors[ci], d=debtors[di_];
+    const amt=Math.min(c.amt,d.amt);
+    txs.push({from:d.label,to:c.label,amt});
+    c.amt-=amt; d.amt-=amt;
+    if(c.amt<0.5) ci++;
+    if(d.amt<0.5) di_++;
+  }
+  h+=`<div class="split-sect-t">Para acertar as contas</div>`;
+  if(!txs.length){
+    h+=`<div class="split-result" style="justify-content:center;color:var(--t3)">Tudo certo, ninguém deve nada 🎉</div>`;
+  } else {
+    txs.forEach(t=>{ h+=`<div class="split-result"><span>${t.from} → ${t.to}</span><b>${fmtARS(t.amt)}</b></div>`; });
+  }
+  document.getElementById("summaryBody").innerHTML=h;
+}
+
+// info importante modal
+window.openInfoModal=function(){
+  closeStackedModals();
+  document.getElementById("infoTitle").textContent="💰 "+(window._infoName||"Informações importantes");
+  document.getElementById("infoBody").innerHTML=window._infoHtml||"";
+  document.getElementById("infoModal").classList.add("open");
+};
+function closeInfoModal(){ document.getElementById("infoModal").classList.remove("open"); }
+document.getElementById("infoClose").addEventListener("click",closeInfoModal);
+document.getElementById("infoModal").addEventListener("click",function(e){if(e.target.id==="infoModal")closeInfoModal();});
+
+// ─── lightbox ──────────────────────────────────────────────────────────────
+(function(){
+  let _photos=[], _idx=0, _startX=0, _dragging=false;
+  const lb=document.getElementById("lb");
+  const lbImg=document.getElementById("lbImg");
+  const lbCounter=document.getElementById("lbCounter");
+
+  function show(i){
+    _idx=(i+_photos.length)%_photos.length;
+    lbImg.src=_photos[_idx];
+    lbCounter.textContent=_photos.length>1?`${_idx+1} / ${_photos.length}`:"";
+    document.getElementById("lbPrev").style.display=_photos.length>1?"flex":"none";
+    document.getElementById("lbNext").style.display=_photos.length>1?"flex":"none";
+  }
+
+  window.openLightbox=function(photos, idx){
+    _photos=photos; show(idx);
+    lb.classList.add("open");
+  };
+
+  document.getElementById("lbClose").addEventListener("click",()=>lb.classList.remove("open"));
+  document.getElementById("lbPrev").addEventListener("click",()=>show(_idx-1));
+  document.getElementById("lbNext").addEventListener("click",()=>show(_idx+1));
+  lb.addEventListener("click",function(e){if(e.target===lb)lb.classList.remove("open");});
+
+  // keyboard
+  document.addEventListener("keydown",function(e){
+    if(!lb.classList.contains("open")) return;
+    if(e.key==="ArrowLeft") show(_idx-1);
+    else if(e.key==="ArrowRight") show(_idx+1);
+    else if(e.key==="Escape") lb.classList.remove("open");
+  });
+
+  // swipe
+  lb.addEventListener("pointerdown",function(e){_startX=e.clientX;_dragging=true;});
+  lb.addEventListener("pointerup",function(e){
+    if(!_dragging) return; _dragging=false;
+    const dx=e.clientX-_startX;
+    if(Math.abs(dx)>50) show(dx<0?_idx+1:_idx-1);
+  });
+})();
+
+// ─── phase switch ──────────────────────────────────────────────────────────
+function buildTabs(){
+  const el=document.getElementById("ptabs");
+  el.innerHTML=PHASES.map(([k,l],i)=>`<button class="ptab${i===0?" a":""}" id="tab-${k}">${et(l)}</button>`).join("");
+  PHASES.forEach(([k])=>onTap(document.getElementById("tab-"+k),()=>setPhase(k)));
+}
+function setPhase(p){
+  ph=p; di=0;
+  PHASES.forEach(([k])=>{
+    const b=document.getElementById("tab-"+k);
+    b.classList.toggle("a",k===p);
+    if(k===p) b.scrollIntoView({behavior:"smooth",block:"nearest",inline:"center"});
+  });
+  renderDay();
+}
+
+function setDay(i){ di=i; renderDay(); }
+
+// ─── init ──────────────────────────────────────────────────────────────────
+buildTabs();
+renderDay();
+
+// ── File Attachments ─────────────────────────────────────────────────────────
+function fmtSize(b){if(b<1024)return b+'B';if(b<1048576)return (b/1024).toFixed(1)+'KB';return (b/1048576).toFixed(1)+'MB';}
+function fileIco(type){if(type==='application/pdf')return '📄';if(type.startsWith('image/'))return '🖼️';if(type.startsWith('video/'))return '🎥';if(type.startsWith('audio/'))return '🎵';return '📎';}
+
+async function renderFilesSection(stopSk, pinnedFiles=[]){
+  const el=document.getElementById('shFiles');
+  if(!el) return;
+  const files=await FILES.get(stopSk);
+  let h=`<div class="sh-files">
+    <div class="sh-files-hd">
+      <span>📎 Reservas &amp; Ingressos</span>
+      <button class="sh-files-add" id="shFilesAdd">+ Adicionar</button>
+    </div>`;
+
+  // pinned files first (reservations)
+  const pinnedPhotos=pinnedFiles.map(f=>f.url);
+  if(pinnedFiles.length){
+    h+=`<div class="sh-file-list">`;
+    pinnedFiles.forEach((f,i)=>{
+      h+=`<div class="sh-file-row" data-pinidx="${i}" style="cursor:pointer">
+        <span class="sh-file-ico">📷</span>
+        <div class="sh-file-info">
+          <div class="sh-file-name">${et(f.label)}</div>
+          <div class="sh-file-sz" style="color:var(--t3);font-size:10px">📌 Fixado</div>
+        </div>
+      </div>`;
+    });
+    h+=`</div>`;
+  }
+
+  // user-uploaded files
+  if(files.length){
+    h+=`<div class="sh-file-list">`;
+    files.forEach(f=>{
+      h+=`<div class="sh-file-row" data-fid="${f.id}">
+        <div class="sh-file-ico">${fileIco(f.type)}</div>
+        <div class="sh-file-info">
+          <div class="sh-file-name">${et(f.name)}</div>
+          <div class="sh-file-sz">${fmtSize(f.size)}</div>
+        </div>
+        <button class="sh-file-del" data-fid="${f.id}" aria-label="Remover">×</button>
+      </div>`;
+    });
+    h+=`</div>`;
+  } else if(!pinnedFiles.length) {
+    h+=`<div class="sh-files-empty">Nenhum arquivo ainda</div>`;
+  }
+  h+=`</div>`;
+  el.innerHTML=h;
+
+  // add button
+  document.getElementById('shFilesAdd').addEventListener('click',function(e){
+    e.stopPropagation();
+    const inp=document.getElementById('fileInput');
+    inp._sk=stopSk;
+    inp.click();
+  });
+
+  // open pinned reservation on row click
+  el.querySelectorAll('.sh-file-row[data-pinidx]').forEach(row=>{
+    row.addEventListener('click',function(){
+      openLightbox(pinnedPhotos, parseInt(this.dataset.pinidx));
+    });
+  });
+
+  // open user-uploaded file on row click
+  el.querySelectorAll('.sh-file-row[data-fid]').forEach(row=>{
+    row.addEventListener('click',function(e){
+      if(e.target.dataset.fid) return; // delete btn
+      const f=files.find(x=>x.id===parseInt(this.dataset.fid));
+      if(!f) return;
+      const blob=new Blob([f.data],{type:f.type||'application/octet-stream'});
+      const url=URL.createObjectURL(blob);
+      window.open(url,'_blank');
+      setTimeout(()=>URL.revokeObjectURL(url),10000);
+    });
+  });
+
+  // delete buttons
+  el.querySelectorAll('.sh-file-del').forEach(btn=>{
+    btn.addEventListener('click',async function(e){
+      e.stopPropagation();
+      await FILES.del(parseInt(this.dataset.fid));
+      renderFilesSection(stopSk);
+      // update card badge
+      document.querySelectorAll('[data-sk="'+stopSk+'"]').forEach(async b=>{
+        const h=await FILES.hasAny(stopSk);
+        b.style.display=h?'inline-block':'none';
+      });
+    });
+  });
+}
+
+// file input handler
+document.getElementById('fileInput').addEventListener('change',async function(){
+  const stopSk=this._sk;
+  if(!stopSk||!this.files.length) return;
+  for(const f of Array.from(this.files)){
+    await FILES.save(stopSk,f);
+  }
+  this.value='';
+  renderFilesSection(stopSk);
+  // show badge on card
+  document.querySelectorAll('[data-sk="'+stopSk+'"]').forEach(b=>{b.style.display='inline-block';});
+});
+
+</script>
+</body>
+</html>
