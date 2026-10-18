@@ -24,9 +24,25 @@ PH_DIR = os.path.join(ROOT, 'assets', 'photos')
 MEALKEY = {'almoço': 'lunchOptions', 'jantar': 'dinnerOptions'}
 
 
+def _norm(x): return re.sub(r'[^a-z0-9]', '', L.slug(x))
+
+
+def _same_place(a, b):
+    """Mesmo restaurante com dois cadastros no Google: nome igual, ou um contido no outro (>=8 letras) a menos de 100 m."""
+    na, nb = _norm(a['name']), _norm(b['name'])
+    if na and na == nb: return True
+    near = L.hav((a['lat'], a['lng']), (b['lat'], b['lng'])) < 100
+    short, long_ = (na, nb) if len(na) <= len(nb) else (nb, na)
+    return near and len(short) >= 8 and short in long_
+
+
 def trim(cards, reserve=0):
-    """Fica com as MAX_CARDS-reserve de maior nota (desempate: mais avaliações) e reordena pela distância."""
-    top = sorted(cards, key=lambda c: (-(c['place'].get('rating') or 0), -(c['place'].get('rcount') or 0)))[:MAX_CARDS - reserve]
+    """Fica com as MAX_CARDS-reserve de maior nota (desempate: mais avaliações), sem cadastros duplicados, e reordena pela distância."""
+    top = []
+    for c in sorted(cards, key=lambda c: (-(c['place'].get('rating') or 0), -(c['place'].get('rcount') or 0))):
+        if any(_same_place(c['place'], t['place']) for t in top): continue
+        top.append(c)
+        if len(top) >= MAX_CARDS - reserve: break
     return sorted(top, key=lambda c: c['d'])
 
 

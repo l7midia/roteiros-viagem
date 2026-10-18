@@ -16,6 +16,7 @@ html = open(os.path.join(ROOT, 'index.html'), encoding='utf-8').read()
 DATA = json.loads(re.search(r'const DATA=(\{.*?\});\n', html, re.S).group(1))
 HOTELS = json.loads(re.search(r'const HOTELS=(\{.*?\});\n', html, re.S).group(1))
 
+TITA_ANY_TYPE = {"Omoide Yokocho", "Tsukiji Outer Market", "Kuromon Market"}   # vielas/mercados de comida da lista da Tita
 SKIP_DAYS = {'16/10', '17/10', '05/11', '31/10'}
 NO_LUNCH = {'18/10'}
 NO_DINNER = {'22/10'}
@@ -123,7 +124,7 @@ for city, names in TITA.items():
         res = []
         for p in L.text_search(brand + ' ' + city, lat, lng, 30000, None, 1):
             n = norm(p['displayName']['text'])
-            if toks and all(t in n for t in toks[:2]):
+            if toks and all(t in n for t in toks[:2]) and (L.is_meal_place(p) or nm in TITA_ANY_TYPE):
                 res.append((p['id'], (nm, p)))
         return res
     with ThreadPoolExecutor(8) as ex:
