@@ -19,8 +19,15 @@ html = open(html_path, encoding='utf-8').read()
 m = re.search(r'const DATA=(\{.*?\});\n', html, re.S)
 DATA = json.loads(m.group(1))
 DO_PHOTOS = '--photos' in sys.argv
+MAX_CARDS = int(os.environ.get('MAX_CARDS', '10'))   # máximo de opções por carrossel (as de maior nota)
 PH_DIR = os.path.join(ROOT, 'assets', 'photos')
 MEALKEY = {'almoço': 'lunchOptions', 'jantar': 'dinnerOptions'}
+
+
+def trim(cards, reserve=0):
+    """Fica com as MAX_CARDS-reserve de maior nota (desempate: mais avaliações) e reordena pela distância."""
+    top = sorted(cards, key=lambda c: (-(c['place'].get('rating') or 0), -(c['place'].get('rcount') or 0)))[:MAX_CARDS - reserve]
+    return sorted(top, key=lambda c: c['d'])
 
 
 def day_of(ph, lab): return [d for d in DATA[ph] if d['label'] == lab][0]
@@ -47,6 +54,8 @@ def photos_for(pid, place):
 
 
 # baixa as fotos em paralelo (3 por lugar, 720 px, JPEG recomprimido)
+for s_ in RES['slots']:
+    s_['cards'] = trim(s_['cards'], 1 if s_['mode'] == 'move' else 0)
 uniq = {}
 for s_ in RES['slots']:
     for c_ in s_['cards']:
