@@ -144,12 +144,16 @@ PT_TYPE = {'japanese_restaurant': 'Restaurante japonês', 'sushi_restaurant': 'R
            'indian_restaurant': 'Restaurante indiano', 'buffet_restaurant': 'Buffet', 'diner': 'Lanchonete', 'food_court': 'Praça de alimentação'}
 
 
+# nomes em inglês que o Google devolve como tipo principal
+PT_DISPLAY = {"Yakiniku restaurant": "Yakiniku (carne na grelha)", "Tonkatsu restaurant": "Tonkatsu (porco empanado)", "Halal restaurant": "Restaurante halal", "Izakaya restaurant": "Izakaya", "Japanese curry restaurant": "Curry japonês", "Yakitori restaurant": "Yakitori (espetinhos)", "Oyster bar restaurant": "Ostras", "Asian restaurant": "Restaurante asiático", "Vegan restaurant": "Restaurante vegano", "Thai restaurant": "Restaurante tailandês"}
+
+
 def tipo_pt(p):
     pt = p.get('primaryType') or ''
     if pt in PT_TYPE:
         return PT_TYPE[pt]
     d = (p.get('primaryTypeDisplayName') or {}).get('text')
-    return d or 'Restaurante'
+    return PT_DISPLAY.get(d, d) or 'Restaurante'
 
 
 def fmt_dist(m):
